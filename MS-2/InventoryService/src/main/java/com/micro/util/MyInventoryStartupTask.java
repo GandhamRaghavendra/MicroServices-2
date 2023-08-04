@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class MyStartupTask implements ApplicationRunner {
+public class MyInventoryStartupTask implements ApplicationRunner {
 
     @Autowired
     private InventoryRepo inventoryRepo;
