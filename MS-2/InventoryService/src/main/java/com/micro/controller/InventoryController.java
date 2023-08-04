@@ -24,7 +24,7 @@ public class InventoryController {
     }
 
     @PostMapping("/{pid}/{qun}")
-    public String check(@PathVariable Integer pid,@PathVariable Integer qun){
+    public ResponseEntity<String> check(@PathVariable Integer pid,@PathVariable Integer qun){
 
         InventoryItem item =  inventoryRepo.findById(pid).orElseThrow(() -> new RuntimeException("Invalid Id..!"));
 
@@ -34,6 +34,6 @@ public class InventoryController {
 
         inventoryRepo.save(item);
 
-        return "Done";
+        return new ResponseEntity<>("Done", HttpStatus.OK);
     }
 }
