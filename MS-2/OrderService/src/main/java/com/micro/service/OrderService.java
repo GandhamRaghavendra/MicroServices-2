@@ -43,7 +43,10 @@ public class OrderService {
 
         System.out.println(inventoryItem);
 
-        String res = restTemplate.getForObject(url3, String.class);
+//        String res = restTemplate.getForObject(url3, String.class);
+
+        ResponseEntity<String> responseEntity = restTemplate.exchange(url3, HttpMethod.POST, null, String.class);
+        String res = responseEntity.getBody();
 
         System.out.println(res);
 
@@ -55,6 +58,7 @@ public class OrderService {
             order.setQuantity(qun);
             order.setProductId(product.getProductId());
             order.setTotalPrice(qun * product.getPrice());
+            order.setPName(product.getName());
 
             return order;
 //        }
