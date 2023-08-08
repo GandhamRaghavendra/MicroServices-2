@@ -3,11 +3,9 @@ package com.micro.service;
 import com.micro.model.InventoryItem;
 import com.micro.model.Order;
 import com.micro.model.Product;
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -30,27 +28,22 @@ public class OrderService {
         String url3 = "http://localhost:8081/inventory/"+pid+"/"+qun;
 
 
-//        System.out.println(modelService.getProduct(pid));
-
-
         Product product = restTemplate.exchange(url1, HttpMethod.GET, null, new ParameterizedTypeReference<Product>() {
         }).getBody();
 
-        System.out.println(product);
+//        System.out.println(product);
 
         InventoryItem inventoryItem = restTemplate.exchange(url2, HttpMethod.GET, null, new ParameterizedTypeReference<InventoryItem>() {
         }).getBody();
 
-        System.out.println(inventoryItem);
-
-//        String res = restTemplate.getForObject(url3, String.class);
+//        System.out.println(inventoryItem);
 
         ResponseEntity<String> responseEntity = restTemplate.exchange(url3, HttpMethod.POST, null, String.class);
         String res = responseEntity.getBody();
 
         System.out.println(res);
 
-//        if(res.equals("Done")){
+        if(res.equals("Done")){
 
 
             Order order = new Order();
@@ -61,9 +54,9 @@ public class OrderService {
             order.setPName(product.getName());
 
             return order;
-//        }
+        }
 
-//        throw new RuntimeException("Insufficient Qun..!");
+        throw new RuntimeException("Insufficient Qun..!");
     }
 
 }

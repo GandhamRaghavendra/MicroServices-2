@@ -8,7 +8,17 @@
         <option value="$PROJECT_DIR$/MS-2/InventoryService/pom.xml" />
         <option value="$PROJECT_DIR$/MS-2/OrderService/pom.xml" />
         <option value="$PROJECT_DIR$/MS-2/EurekaServer/pom.xml" />
+        <option value="$PROJECT_DIR$/MS-2/Starter/pom.xml" />
+        <option value="$PROJECT_DIR$/MS-2/GateWayService/pom.xml" />
+        <option value="$PROJECT_DIR$/MS-2/UserService/pom.xml" />
+        <option value="$PROJECT_DIR$/MS-2/UserIdentityService/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/MS-2/Starter/pom.xml" />
+        <option value="$PROJECT_DIR$/MS-2/UserService/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">

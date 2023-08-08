@@ -10,11 +10,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/products")
 public class ProductController {
     @Autowired
     private ProductService productService;
+
+    @GetMapping
+    public ResponseEntity<List<Product>> getAllProducts(){
+
+        List<Product> all = productService.getAll();
+
+        return new ResponseEntity<>(all,HttpStatus.OK);
+    }
 
     @GetMapping("/{Id}")
     public ResponseEntity<Product> getProductById(@PathVariable("Id") Integer id){
