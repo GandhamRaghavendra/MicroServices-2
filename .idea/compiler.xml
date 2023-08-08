@@ -8,18 +8,28 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="EurekaServer" />
+        <module name="UserIdentityService" />
         <module name="OrderService" />
         <module name="ProductService" />
+        <module name="GateWayService" />
         <module name="InventoryService" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Starter" target="17" />
+      <module name="UserService" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="EurekaServer" options="-parameters" />
+      <module name="GateWayService" options="-parameters" />
       <module name="InventoryService" options="-parameters" />
       <module name="OrderService" options="-parameters" />
       <module name="ProductService" options="-parameters" />
+      <module name="Starter" options="-parameters" />
+      <module name="UserIdentityService" options="-parameters" />
+      <module name="UserService" options="-parameters" />
     </option>
   </component>
 </project>
