@@ -14,7 +14,7 @@ public interface UserService {
     UserData getUserById(Integer uId);
 
 
-    String generateJWT(AuthRequest authRequest);
+    String generateJWT(String name);
 
     boolean validateJWT(String token);
 }

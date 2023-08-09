@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/MS-2/GateWayService/pom.xml" />
         <option value="$PROJECT_DIR$/MS-2/UserService/pom.xml" />
         <option value="$PROJECT_DIR$/MS-2/UserIdentityService/pom.xml" />
+        <option value="$PROJECT_DIR$/MS-2/UserAuthService/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

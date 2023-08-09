@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.micro</groupId>
-	<artifactId>UserIdentityService</artifactId>
+	<artifactId>UserAuthService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>UserIdentityService</name>
+	<name>UserAuthService</name>
 	<description>Demo project for UserService with spring boot</description>
 	<properties>
 		<java.version>17</java.version>
@@ -33,6 +33,22 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.11.5</version>
 		</dependency>
 
 		<dependency>
