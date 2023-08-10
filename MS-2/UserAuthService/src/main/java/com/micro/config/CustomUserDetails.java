@@ -1,15 +1,19 @@
 package com.micro.config;
 
+import com.micro.entity.Role;
 import com.micro.entity.UserData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class CustomUserDetails implements UserDetails {
 
+//    @Autowired
     private UserData userData;
 
     public CustomUserDetails(UserData userCredential) {
@@ -18,7 +22,18 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return new HashSet<SimpleGrantedAuthority>();
+
+        HashSet<SimpleGrantedAuthority> simpleGrantedAuthorities = new HashSet<>();
+
+//        List<Role> roles = userData.getAuthorities();
+//
+//        for(Role r : roles){
+//            simpleGrantedAuthorities.add(new SimpleGrantedAuthority(r.toString()));
+//        }
+
+        simpleGrantedAuthorities.add(new SimpleGrantedAuthority(userData.getRole().toString()));
+
+        return simpleGrantedAuthorities;
     }
 
     @Override

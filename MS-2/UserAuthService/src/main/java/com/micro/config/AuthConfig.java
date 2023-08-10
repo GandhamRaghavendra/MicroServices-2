@@ -19,18 +19,12 @@ import org.springframework.security.web.SecurityFilterChain;
 public class AuthConfig {
 
     @Bean
-    public UserDetailsService userDetailsService(){
-        return new CustomUserDetailsService();
-    }
-
-
-    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         HttpSecurity httpSecurity = http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auths ->
                         auths
-                            .requestMatchers("/auths/**")
+                            .requestMatchers("/auths/register")
                             .permitAll()
                             .anyRequest()
                             .authenticated()
@@ -44,18 +38,5 @@ public class AuthConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public AuthenticationProvider authenticationProvider(){
-        DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider();
-        authenticationProvider.setUserDetailsService(userDetailsService());
-        authenticationProvider.setPasswordEncoder(passwordEncoder());
-        return authenticationProvider;
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();
     }
 }

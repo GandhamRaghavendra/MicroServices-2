@@ -8,15 +8,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="EurekaServer" />
-        <module name="UserIdentityService" />
         <module name="OrderService" />
         <module name="ProductService" />
         <module name="GateWayService" />
+        <module name="UserAuthService" />
         <module name="InventoryService" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Starter" target="17" />
+      <module name="UserIdentityService" target="17" />
       <module name="UserService" target="17" />
     </bytecodeTargetLevel>
   </component>
@@ -28,6 +29,7 @@
       <module name="OrderService" options="-parameters" />
       <module name="ProductService" options="-parameters" />
       <module name="Starter" options="-parameters" />
+      <module name="UserAuthService" options="-parameters" />
       <module name="UserIdentityService" options="-parameters" />
       <module name="UserService" options="-parameters" />
     </option>
