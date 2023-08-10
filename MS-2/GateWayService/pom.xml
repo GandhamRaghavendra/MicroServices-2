@@ -42,12 +42,21 @@
 			<artifactId>jjwt-jackson</artifactId>
 			<version>0.11.5</version>
 		</dependency>
-		<!-- https://mavenlibs.com/maven/dependency/com.github.vladimir-bukhtoyarov/bucket4j-core -->
+
+		<!-- https://mvnrepository.com/artifact/com.bucket4j/bucket4j-core -->
 		<dependency>
-			<groupId>com.github.vladimir-bukhtoyarov</groupId>
+			<groupId>com.bucket4j</groupId>
 			<artifactId>bucket4j-core</artifactId>
-			<version>7.6.0</version>
+			<version>8.2.0</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.bucket4j/bucket4j-jcache -->
+		<dependency>
+			<groupId>com.bucket4j</groupId>
+			<artifactId>bucket4j-jcache</artifactId>
+			<version>8.2.0</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -2,6 +2,7 @@ package com.micro.service;
 
 import com.micro.entity.UserData;
 import com.micro.repo.AuthRequest;
+import org.springframework.security.core.Authentication;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface UserService {
     UserData getUserById(Integer uId);
 
 
-    String generateJWT(String name);
+    String generateJWT(Authentication authentication);
 
     boolean validateJWT(String token);
 }

@@ -1,25 +1,28 @@
 package com.micro.service;
 
+import com.micro.entity.UserData;
+import com.micro.repo.UserRepo;
+import com.netflix.discovery.converters.Auto;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import java.security.Key;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.security.Security;
+import java.util.*;
 import java.util.function.Function;
 
 @Component
 public class JwtService {
 
-
-    public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
-
+    @Autowired
+    private UserRepo userRepo;
 
     public boolean validateToken(final String token) {
         Jws<Claims> claimsJws = Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token);
@@ -28,22 +31,29 @@ public class JwtService {
     }
 
 
-    public String generateToken(String userName) {
+    public String generateToken(Authentication authentication) {
+
         Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, userName);
+
+        claims.put("username",authentication.getName());
+
+        claims.put("roles",authentication.getAuthorities());
+
+        return createToken(claims, authentication.getName());
     }
 
     private String createToken(Map<String, Object> claims, String userName) {
         return Jwts.builder()
+                .setIssuer(SecurityConstant.JWT_ISSUER)
+                .setSubject(SecurityConstant.JWT_SUB)
                 .setClaims(claims)
-                .setSubject(userName)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 30))
+                .setExpiration(new Date(System.currentTimeMillis() + SecurityConstant.JWT_VALID_TILL))
                 .signWith(getSignKey(), SignatureAlgorithm.HS256).compact();
     }
 
     private Key getSignKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(SECRET);
+        byte[] keyBytes = Decoders.BASE64.decode(SecurityConstant.JWT_KEY);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 }

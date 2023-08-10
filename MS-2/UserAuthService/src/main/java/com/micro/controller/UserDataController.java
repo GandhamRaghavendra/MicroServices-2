@@ -1,18 +1,24 @@
 package com.micro.controller;
 
+import com.micro.dto.UserRegisterRequest;
 import com.micro.entity.UserData;
 import com.micro.repo.AuthRequest;
+import com.micro.service.SecurityConstant;
 import com.micro.service.UserService;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.ws.rs.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.http.HttpResponse;
 import java.util.List;
 
 @RestController
@@ -23,30 +29,31 @@ public class UserDataController {
     private UserService userService;
 
     @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/register")
-    public String addNewUser(@RequestBody UserData user) {
+    public String addNewUser(@RequestBody UserRegisterRequest user) {
 
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+       UserData userData =  new UserData();
 
-        return userService.saveUser(user);
+       userData.setPassword(passwordEncoder.encode(user.getPass()));
+       userData.setName(user.getName());
+       userData.setEmail(user.getMail());
+       userData.setRole(user.getRole());
+
+       userService.saveUser(userData);
+
+       return "Done";
     }
 
     @PostMapping("/token")
-    public ResponseEntity<String> generateToken(@RequestBody AuthRequest authRequest){
-        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPass()));
-        if (authenticate.isAuthenticated()) {
-            String jwt = userService.generateJWT(authRequest.getUsername());
+    public ResponseEntity<String> generateToken(){
 
-            return new ResponseEntity<>(jwt,HttpStatus.OK);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        } else {
-            throw new RuntimeException("invalid access");
-        }
+        String jwt = userService.generateJWT(authentication);
+
+        return new ResponseEntity<>(jwt,HttpStatus.OK);
     }
 
     @PostMapping("/valid")

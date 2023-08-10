@@ -5,6 +5,8 @@ import com.micro.repo.AuthRequest;
 import com.micro.repo.UserRepo;
 import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,8 +38,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public String generateJWT(String name) {
-        return jwtService.generateToken(name);
+    public String generateJWT(Authentication authentication) {
+        return jwtService.generateToken(authentication);
     }
 
     @Override
