@@ -4,6 +4,8 @@ import com.micro.entity.Role;
 import com.micro.entity.UserData;
 import com.micro.repo.UserRepo;
 import com.netflix.discovery.converters.Auto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -22,9 +24,13 @@ public class MyStartupTack implements ApplicationRunner {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    private final Logger logger = LoggerFactory.getLogger(MyStartupTack.class);
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+
+        logger.info("Inside Startup Method..!");
+
         List<UserData> list = new ArrayList<>();
 
         String encode = passwordEncoder.encode("1234");
@@ -35,6 +41,9 @@ public class MyStartupTack implements ApplicationRunner {
 
         userRepo.saveAll(list);
 
-        System.out.println(userRepo.findAll());
+        if(userRepo.findAll().isEmpty()) logger.warn("Insertion Failed..!");
+
+
+        logger.info("Start-up Method Execution Successfully Done..!");
     }
 }

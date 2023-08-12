@@ -24,4 +24,8 @@ public class UserData {
     private String password;
 
     private Role role;
+
+    //todo: add one unique key field (Api Key)..
+
+    //todo: add one rate limit plan key field..
 }

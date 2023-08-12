@@ -4,6 +4,8 @@ import com.micro.model.InventoryItem;
 import com.micro.model.Order;
 import com.micro.model.Product;
 import com.micro.service.OrderService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -19,8 +21,12 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    private final Logger logger = LoggerFactory.getLogger(OrderController.class);
+
     @PostMapping("/{pid}/{qun}")
     public ResponseEntity<Order> placeOrder(@PathVariable("pid") Integer pid, @PathVariable("qun") Integer qun){
+
+        logger.info("Inside ControllerLayer (ORDER_SERVICE)..!");
 
         Order order = orderService.placeOrder(pid, qun);
 
@@ -29,6 +35,7 @@ public class OrderController {
 
     @GetMapping("/abc")
     public String abc(){
+        logger.info("Inside ControllerLayer (ORDER_SERVICE)..!");
         return "abcd";
     }
 }
