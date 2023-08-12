@@ -7,6 +7,8 @@ import com.micro.service.SecurityConstant;
 import com.micro.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.ws.rs.PathParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +33,12 @@ public class UserDataController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    private final Logger logger = LoggerFactory.getLogger(UserDataController.class);
+
     @PostMapping("/register")
     public String addNewUser(@RequestBody UserRegisterRequest user) {
+
+        logger.info("Inside Controller Layer (/register)..!");
 
        UserData userData =  new UserData();
 
@@ -49,6 +55,10 @@ public class UserDataController {
     @PostMapping("/token")
     public ResponseEntity<String> generateToken(){
 
+        //todo: on execution of this method we should create api key..
+
+        logger.info("Inside Controller Layer (/token)..!");
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         String jwt = userService.generateJWT(authentication);
@@ -59,6 +69,8 @@ public class UserDataController {
     @PostMapping("/valid")
     public ResponseEntity<String> validateJWT(@PathParam("token") String token){
 
+        logger.info("Inside Controller Layer (/valid)..!");
+
         if(userService.validateJWT(token)){
             return new ResponseEntity<>("T", HttpStatus.OK);
         }
@@ -67,6 +79,9 @@ public class UserDataController {
 
     @GetMapping("/all/users")
     public ResponseEntity<List<UserData>> getAllUsers(){
+
+        // todo: this point only accessed by admin..
+        logger.info("Inside Controller Layer (/all/users)..!");
 
         List<UserData> all = userService.getAll();
 

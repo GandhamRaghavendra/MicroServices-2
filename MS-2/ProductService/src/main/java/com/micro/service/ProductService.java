@@ -8,6 +8,5 @@ import java.util.Optional;
 
 public interface ProductService {
     Optional<Product> getById(Integer id);
-
     List<Product> getAll();
 }

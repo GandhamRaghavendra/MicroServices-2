@@ -2,6 +2,8 @@ package com.micro.util;
 
 import com.micro.model.Product;
 import com.micro.repo.ProductRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -16,10 +18,12 @@ public class MyProductStartupTask implements ApplicationRunner {
     @Autowired
     private ProductRepo productRepol;
 
+    private final Logger logger = LoggerFactory.getLogger(MyProductStartupTask.class);
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        System.out.println("Performing startup operations...");
+        logger.info("Performing startup operations (PRODUCT_SERVICE)...");
 
         List<Product> list = new ArrayList<>();
 
@@ -31,9 +35,8 @@ public class MyProductStartupTask implements ApplicationRunner {
 
         productRepol.saveAll(list);
 
-//        System.out.println(productRepol.findAll());
+        if(productRepol.findAll().isEmpty()) logger.warn("Product Insertion Failed..!");
 
-        System.out.println("Insertion Done..!");
-
+        logger.info("Start Method Ended (PRODUCT_SERVICE)..!");
     }
 }

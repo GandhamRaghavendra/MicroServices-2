@@ -34,7 +34,7 @@ public class RateLimiterFilter extends AbstractGatewayFilterFactory<RateLimiterF
             if (validator.isSecured.test(exchange.getRequest())) {
                 //header contains token or not
                 if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
-//
+
 //                    logger.error("Missing authorization header");
 
                     throw new RuntimeException("missing authorization header");

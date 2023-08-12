@@ -1,5 +1,8 @@
 package com.micro.config;
 
+import com.micro.filter.AdminFilter;
+import com.micro.filter.BasicFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -34,6 +37,22 @@ public class AuthConfig {
 
         return httpSecurity.build();
     }
+//
+//    @Bean
+//    public FilterRegistrationBean<BasicFilter> customBasicFilter() {
+//        FilterRegistrationBean<BasicFilter> registrationBean = new FilterRegistrationBean<>();
+//        registrationBean.setFilter(new BasicFilter());
+//        registrationBean.addUrlPatterns("/auths/**");
+//        return registrationBean;
+//    }
+//
+//    @Bean
+//    public FilterRegistrationBean<AdminFilter> customAdminFilter() {
+//        FilterRegistrationBean<AdminFilter> registrationBean = new FilterRegistrationBean<>();
+//        registrationBean.setFilter(new AdminFilter());
+//        registrationBean.addUrlPatterns("/auths/all/**");
+//        return registrationBean;
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {

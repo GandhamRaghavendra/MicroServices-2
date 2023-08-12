@@ -3,6 +3,8 @@ package com.micro.service;
 import com.micro.model.InventoryItem;
 import com.micro.model.Order;
 import com.micro.model.Product;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -16,7 +18,11 @@ public class OrderService {
     @Autowired
     private RestTemplate restTemplate;
 
+    private final Logger logger = LoggerFactory.getLogger(OrderService.class);
+
     public Order placeOrder(Integer pid, Integer qun){
+
+        logger.info("Inside Service Method (ORDER_SERVICE)..!");
 
         // this is for checking product.
         String url1 = "http://localhost:8082/products/"+pid;
@@ -56,7 +62,8 @@ public class OrderService {
             return order;
         }
 
+        logger.info("Service Method End (ORDER_SERVICE)..!");
+
         throw new RuntimeException("Insufficient Qun..!");
     }
-
 }

@@ -2,6 +2,8 @@ package com.micro.util;
 
 import com.micro.model.InventoryItem;
 import com.micro.repo.InventoryRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -13,13 +15,15 @@ import java.util.List;
 @Component
 public class MyInventoryStartupTask implements ApplicationRunner {
 
+    private final Logger logger = LoggerFactory.getLogger(MyInventoryStartupTask.class);
+
     @Autowired
     private InventoryRepo inventoryRepo;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        System.out.println("Performing startup operations...");
+        logger.info("Performing startup operations...");
 
         List<InventoryItem> list = new ArrayList<>();
 
@@ -31,7 +35,6 @@ public class MyInventoryStartupTask implements ApplicationRunner {
 
         inventoryRepo.saveAll(list);
 
-        System.out.println("Insertion Done..!");
-
+        logger.info("Insertion Done..!");
     }
 }
