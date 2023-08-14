@@ -5,6 +5,7 @@ import com.micro.service.ProductService;
 import jakarta.persistence.PostRemove;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,11 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts(){
 
+        MDC.put("userId","unique_User_Id");
+
         logger.info("Inside Controller Method (PRODUCT_SERVICE)..!");
+
+        MDC.remove("userId");
 
         List<Product> all = productService.getAll();
 
@@ -33,7 +38,11 @@ public class ProductController {
     @GetMapping("/{Id}")
     public ResponseEntity<Product> getProductById(@PathVariable("Id") Integer id){
 
+        MDC.put("userId","unique_User_Id");
+
         logger.info("Inside Controller Method (PRODUCT_SERVICE)..!");
+
+        MDC.remove("userId");
 
        Product product =  productService.getById(id).orElseThrow(() -> new RuntimeException("Invalid ProductID..!"));
 
@@ -41,7 +50,7 @@ public class ProductController {
     }
 
 
-    @PostMapping("")
+    @PostMapping
     public ResponseEntity<Product> updateProduct(@PathVariable Integer pId,@RequestBody Product product){
 
         //TODO: implement api key for this method..

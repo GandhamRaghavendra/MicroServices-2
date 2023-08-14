@@ -4,6 +4,7 @@ import com.micro.model.Product;
 import com.micro.repo.ProductRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -23,7 +24,11 @@ public class MyProductStartupTask implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
+        MDC.put("userId","unique_User_Id");
+
         logger.info("Performing startup operations (PRODUCT_SERVICE)...");
+
+
 
         List<Product> list = new ArrayList<>();
 
@@ -38,5 +43,7 @@ public class MyProductStartupTask implements ApplicationRunner {
         if(productRepol.findAll().isEmpty()) logger.warn("Product Insertion Failed..!");
 
         logger.info("Start Method Ended (PRODUCT_SERVICE)..!");
+
+        MDC.remove("userId");
     }
 }

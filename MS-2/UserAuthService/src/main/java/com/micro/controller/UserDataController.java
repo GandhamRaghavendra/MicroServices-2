@@ -2,25 +2,21 @@ package com.micro.controller;
 
 import com.micro.dto.UserRegisterRequest;
 import com.micro.entity.UserData;
-import com.micro.repo.AuthRequest;
-import com.micro.service.SecurityConstant;
+import com.micro.repo.UserRepo;
 import com.micro.service.UserService;
-import jakarta.servlet.http.HttpServletResponse;
+import com.micro.service.UuidService;
+import jakarta.ws.rs.BadRequestException;
 import jakarta.ws.rs.PathParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.http.HttpResponse;
 import java.util.List;
 
 @RestController
@@ -33,19 +29,29 @@ public class UserDataController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private UuidService uuid;
+
+    @Autowired
+    private UserRepo userRepo;
+
     private final Logger logger = LoggerFactory.getLogger(UserDataController.class);
 
     @PostMapping("/register")
     public String addNewUser(@RequestBody UserRegisterRequest user) {
 
+        MDC.put("userId","unique_User_Id");
+
         logger.info("Inside Controller Layer (/register)..!");
+
+        MDC.remove("userId");
 
        UserData userData =  new UserData();
 
        userData.setPassword(passwordEncoder.encode(user.getPass()));
        userData.setName(user.getName());
        userData.setEmail(user.getMail());
-       userData.setRole(user.getRole());
+       userData.getRoles().add(user.getRole());
 
        userService.saveUser(userData);
 
@@ -55,11 +61,24 @@ public class UserDataController {
     @PostMapping("/token")
     public ResponseEntity<String> generateToken(){
 
-        //todo: on execution of this method we should create api key..
+        // creating apiKey.
+        String apiKey = uuid.generateAndReturnUUID();
+
+        MDC.put("userId","unique_User_Id");
 
         logger.info("Inside Controller Layer (/token)..!");
 
+        MDC.remove("userId");
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        // Everytime storing new apiKey to the user.
+        UserData userData = userRepo.findByName(authentication.getName()).orElseThrow(() -> new BadRequestException("Invalid userName..!"));
+
+        userData.setKey(apiKey);
+
+        userRepo.save(userData);
+        // End.
 
         String jwt = userService.generateJWT(authentication);
 
@@ -69,23 +88,34 @@ public class UserDataController {
     @PostMapping("/valid")
     public ResponseEntity<String> validateJWT(@PathParam("token") String token){
 
+        MDC.put("userId","unique_User_Id");
+
         logger.info("Inside Controller Layer (/valid)..!");
 
-        if(userService.validateJWT(token)){
-            return new ResponseEntity<>("T", HttpStatus.OK);
-        }
-        return new ResponseEntity<>("F",HttpStatus.FORBIDDEN);
+        MDC.remove("userId");
+
+        return new ResponseEntity<>("Validation Done..!", HttpStatus.OK);
     }
 
     @GetMapping("/all/users")
     public ResponseEntity<List<UserData>> getAllUsers(){
 
         // todo: this point only accessed by admin..
+
+        MDC.put("userId","unique_User_Id");
+
         logger.info("Inside Controller Layer (/all/users)..!");
+
+        MDC.remove("userId");
 
         List<UserData> all = userService.getAll();
 
         return new ResponseEntity<>(all,HttpStatus.OK);
+    }
+
+    @GetMapping("/admin")
+    public String adminaccess(){
+        return "Only Admin..!";
     }
 
 }
