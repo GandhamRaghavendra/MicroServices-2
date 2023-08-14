@@ -5,6 +5,7 @@ import com.micro.model.Order;
 import com.micro.model.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -22,7 +23,11 @@ public class OrderService {
 
     public Order placeOrder(Integer pid, Integer qun){
 
+        MDC.put("userId","unique_User_Id");
+
         logger.info("Inside Service Method (ORDER_SERVICE)..!");
+
+        MDC.remove("userId");
 
         // this is for checking product.
         String url1 = "http://localhost:8082/products/"+pid;
@@ -37,12 +42,8 @@ public class OrderService {
         Product product = restTemplate.exchange(url1, HttpMethod.GET, null, new ParameterizedTypeReference<Product>() {
         }).getBody();
 
-//        System.out.println(product);
-
         InventoryItem inventoryItem = restTemplate.exchange(url2, HttpMethod.GET, null, new ParameterizedTypeReference<InventoryItem>() {
         }).getBody();
-
-//        System.out.println(inventoryItem);
 
         ResponseEntity<String> responseEntity = restTemplate.exchange(url3, HttpMethod.POST, null, String.class);
         String res = responseEntity.getBody();
@@ -62,7 +63,11 @@ public class OrderService {
             return order;
         }
 
+        MDC.put("userId","unique_User_Id");
+
         logger.info("Service Method End (ORDER_SERVICE)..!");
+
+        MDC.remove("userId");
 
         throw new RuntimeException("Insufficient Qun..!");
     }

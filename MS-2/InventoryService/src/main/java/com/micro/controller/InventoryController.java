@@ -4,6 +4,7 @@ import com.micro.model.InventoryItem;
 import com.micro.repo.InventoryRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -22,7 +23,11 @@ public class InventoryController {
     @GetMapping("/{id}")
     public ResponseEntity<InventoryItem> getById(@PathVariable int id){
 
+        MDC.put("userId","unique_User_Id");
+
         logger.info("Inside Inventory Controller Method..!");
+
+        MDC.remove("userId");
 
         InventoryItem item =  inventoryRepo.findById(id).orElseThrow(() -> new RuntimeException("Invalid Id..!"));
 
@@ -32,7 +37,11 @@ public class InventoryController {
     @PostMapping("/{pid}/{qun}")
     public ResponseEntity<String> check(@PathVariable Integer pid,@PathVariable Integer qun){
 
+        MDC.put("userId","unique_User_Id");
+
         logger.info("Inside Inventory Controller Method..!");
+
+        MDC.remove("userId");
 
         InventoryItem item =  inventoryRepo.findById(pid).orElseThrow(() -> new RuntimeException("Invalid Id..!"));
 

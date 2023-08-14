@@ -13,7 +13,6 @@ import java.util.Set;
 
 public class CustomUserDetails implements UserDetails {
 
-//    @Autowired
     private UserData userData;
 
     public CustomUserDetails(UserData userCredential) {
@@ -25,13 +24,13 @@ public class CustomUserDetails implements UserDetails {
 
         HashSet<SimpleGrantedAuthority> simpleGrantedAuthorities = new HashSet<>();
 
-//        List<Role> roles = userData.getAuthorities();
-//
-//        for(Role r : roles){
-//            simpleGrantedAuthorities.add(new SimpleGrantedAuthority(r.toString()));
-//        }
+        Set<Role> roles = userData.getRoles();
 
-        simpleGrantedAuthorities.add(new SimpleGrantedAuthority(userData.getRole().toString()));
+        for(Role r : roles){
+            simpleGrantedAuthorities.add(new SimpleGrantedAuthority(r.toString()));
+        }
+
+//        simpleGrantedAuthorities.add(new SimpleGrantedAuthority(userData.getRole().toString()));
 
         return simpleGrantedAuthorities;
     }

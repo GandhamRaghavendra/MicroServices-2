@@ -17,5 +17,5 @@ public interface UserService {
 
     String generateJWT(Authentication authentication);
 
-    boolean validateJWT(String token);
+    void validateJWT(String token);
 }

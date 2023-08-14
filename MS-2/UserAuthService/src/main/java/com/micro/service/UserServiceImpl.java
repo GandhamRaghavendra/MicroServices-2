@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean validateJWT(String token) {
-        return jwtService.validateToken(token);
+    public void validateJWT(String token) {
+        jwtService.validateToken(token);
     }
 }
