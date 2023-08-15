@@ -80,7 +80,7 @@ public class UserDataController {
         userRepo.save(userData);
         // End.
 
-        String jwt = userService.generateJWT(authentication);
+        String jwt = userService.generateJWT(authentication, userData.getLimit().toString(), userData.getKey());
 
         return new ResponseEntity<>(jwt,HttpStatus.OK);
     }
@@ -100,7 +100,7 @@ public class UserDataController {
     @GetMapping("/all/users")
     public ResponseEntity<List<UserData>> getAllUsers(){
 
-        // todo: this point only accessed by admin..
+        //  todo: this point only accessed by admin..
 
         MDC.put("userId","unique_User_Id");
 

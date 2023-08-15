@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/EurekaServer/EurekaServer.iml" filepath="$PROJECT_DIR$/EurekaServer/EurekaServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GateWayService/GateWayService.iml" filepath="$PROJECT_DIR$/GateWayService/GateWayService.iml" />
       <module fileurl="file://$PROJECT_DIR$/InventoryService/InventoryService.iml" filepath="$PROJECT_DIR$/InventoryService/InventoryService.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/MicroServices-2.iml" filepath="$PROJECT_DIR$/.idea/MicroServices-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OrderService/OrderService.iml" filepath="$PROJECT_DIR$/OrderService/OrderService.iml" />
       <module fileurl="file://$PROJECT_DIR$/ProductService/ProductService.iml" filepath="$PROJECT_DIR$/ProductService/ProductService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserAuthService/UserAuthService.iml" filepath="$PROJECT_DIR$/UserAuthService/UserAuthService.iml" />
     </modules>
   </component>
 </project>

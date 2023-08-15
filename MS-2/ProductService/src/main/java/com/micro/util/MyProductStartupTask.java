@@ -28,8 +28,6 @@ public class MyProductStartupTask implements ApplicationRunner {
 
         logger.info("Performing startup operations (PRODUCT_SERVICE)...");
 
-
-
         List<Product> list = new ArrayList<>();
 
         list.add(new Product("pen","Best In Class",20));
@@ -38,7 +36,12 @@ public class MyProductStartupTask implements ApplicationRunner {
         list.add(new Product("phone","Best In Class",15000));
         list.add(new Product("TWS","Best In Class",2000));
 
-        productRepol.saveAll(list);
+        if(productRepol.findById(1).isEmpty()){
+            productRepol.saveAll(list);
+        }
+        else {
+            logger.info("Data Already Present in DB..");
+        }
 
         if(productRepol.findAll().isEmpty()) logger.warn("Product Insertion Failed..!");
 

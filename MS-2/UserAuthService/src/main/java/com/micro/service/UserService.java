@@ -14,8 +14,7 @@ public interface UserService {
 
     UserData getUserById(Integer uId);
 
-
-    String generateJWT(Authentication authentication);
+    String generateJWT(Authentication authentication, String apikey, String limit);
 
     void validateJWT(String token);
 }

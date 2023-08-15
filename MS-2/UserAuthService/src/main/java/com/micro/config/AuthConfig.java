@@ -29,9 +29,9 @@ public class AuthConfig {
         HttpSecurity httpSecurity = http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auths ->
                         auths
-                            .requestMatchers("/auths/register","/auths/all/**")
+                            .requestMatchers("/auths/register")
                             .permitAll()
-                            .requestMatchers("/auths/admin")
+                            .requestMatchers("/auths/admin","/auths/all/**")
                             .hasAuthority("ADMIN")
                             .anyRequest()
                             .authenticated()

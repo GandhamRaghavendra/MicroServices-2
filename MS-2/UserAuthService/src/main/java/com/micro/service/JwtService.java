@@ -60,13 +60,17 @@ public class JwtService {
     }
 
 
-    public String generateToken(Authentication authentication) {
+    public String generateToken(Authentication authentication, String apiKey, String limit) {
 
         Map<String, Object> claims = new HashMap<>();
 
         claims.put("username",authentication.getName());
 
         claims.put("roles", getRole(authentication.getAuthorities()));
+
+        claims.put("limit",limit);
+
+        claims.put("key", apiKey);
 
         return createToken(claims);
     }

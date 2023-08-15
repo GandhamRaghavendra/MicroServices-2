@@ -30,3 +30,6 @@ spring:
           uri: lb://AUTHSERVICE
           predicates:
             - Path=/auths/**
+          filters:
+            - AuthenticationFilter
+            - RateLimiterFilter

@@ -38,8 +38,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public String generateJWT(Authentication authentication) {
-        return jwtService.generateToken(authentication);
+    public String generateJWT(Authentication authentication, String limit, String apiKey) {
+        return jwtService.generateToken(authentication,apiKey,limit);
     }
 
     @Override

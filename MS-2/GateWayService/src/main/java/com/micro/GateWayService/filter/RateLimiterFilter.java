@@ -1,10 +1,14 @@
 package com.micro.GateWayService.filter;
 
 import com.micro.GateWayService.util.JwtUtil;
+import com.micro.GateWayService.util.RateLimit;
+import com.micro.GateWayService.util.RateLimitUtil;
 import io.github.bucket4j.Bandwidth;
 import io.github.bucket4j.Bucket;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -26,16 +30,28 @@ public class RateLimiterFilter extends AbstractGatewayFilterFactory<RateLimiterF
 
     private final Map<String, Bucket> userBuckets = new ConcurrentHashMap<>();
 
+    private final Logger logger = LoggerFactory.getLogger(RateLimiterFilter.class);
+
     public RateLimiterFilter(){super(Config.class);}
 
     @Override
     public GatewayFilter apply(Config config) {
+
+        logger.info("Inside RateLimitFilter..!");
+
         return ((exchange, chain) -> {
             if (validator.isSecured.test(exchange.getRequest())) {
+
+//                System.out.println("Path: "+exchange.getRequest().getPath());
+
+                logger.info("Path: "+exchange.getRequest().getPath());
+
+//                System.out.println(validator.isSecured.test(exchange.getRequest()));
+
                 //header contains token or not
                 if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
 
-//                    logger.error("Missing authorization header");
+                    logger.error("Missing authorization header");
 
                     throw new RuntimeException("missing authorization header");
                 }
@@ -47,24 +63,30 @@ public class RateLimiterFilter extends AbstractGatewayFilterFactory<RateLimiterF
                 }
 
                 try {
-//                    //REST call to AUTH service
-//                    template.getForObject("http://IDENTITY-SERVICE//validate?token" + authHeader, String.class);
+                    //REST call to AUTH service
+//                    template.getForObject("http://IDENTITY-SERVICE//validate?token" + authHeader  , String.class);
 
                     Jws<Claims> claimsJws = jwtUtil.validateToken(authHeader);
 
-                    // getting sub name.
+                    // getting name from claims.
                     String name = (String) claimsJws.getBody().get("username");
 
-                    System.out.println(claimsJws.getBody().get("roles"));
+                    // getting RequestPlan from claims.
+                    String requestLimitPlan = (String) claimsJws.getBody().get("limit");
+
+                    RateLimit rateLimit = RateLimit.valueOf(requestLimitPlan);
+
+                    //getting key of the user from claims.
+                    String key = (String) claimsJws.getBody().get("key");
+
+
+                    logger.info("UserName: "+name);
 
                     // if bucket is not present.
                     if(!userBuckets.containsKey(name)){
 
-                        // define the limit 1 time per 10 minute
-                        Bandwidth limit = Bandwidth.simple(5, Duration.ofMinutes(1));
-
-                        // construct the bucket
-                        Bucket bucket = Bucket.builder().addLimit(limit).build();
+                        // this method will take limit and  give related bucket.
+                        Bucket bucket = RateLimitUtil.createBucketForRateLimit(rateLimit);
 
                         userBuckets.put(name,bucket);
                     }
