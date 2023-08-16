@@ -41,10 +41,17 @@ public class myConfig {
 						.build()
 		);
 
+		CaffeineCache productCache = new CaffeineCache("productCache",
+				Caffeine.newBuilder()
+						.maximumSize(100)
+						.expireAfterWrite(2, TimeUnit.MINUTES)
+						.build()
+		);
+
 
 		SimpleCacheManager cacheManager = new SimpleCacheManager();
 
-		List<Cache> caches = Arrays.asList(productsCache, inventoryCache);
+		List<Cache> caches = Arrays.asList(productsCache, inventoryCache, productCache);
 
 		cacheManager.setCaches(caches);
 
