@@ -1,10 +1,11 @@
 package com.micro.GateWayService.filter;
 
 import com.micro.GateWayService.util.JwtUtil;
+import com.micro.GateWayService.util.UuidService;
+import com.netflix.discovery.converters.Auto;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.security.Keys;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
@@ -12,13 +13,10 @@ import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFac
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-import java.util.logging.Logger;
-
 @Component
 public class AuthenticationFilter extends AbstractGatewayFilterFactory<AuthenticationFilter.Config> {
 
-//    private final Logger logger = (Logger)// LoggerFactory.getLogger(AuthenticationFilter.class);
+    private final Logger logger = LoggerFactory.getLogger(AuthenticationFilter.class);
 
 
     @Autowired
@@ -33,6 +31,8 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
 
     @Override
     public GatewayFilter apply(Config config) {
+        logger.info("Inside AuthenticationFilter of (GATEWAY)..");
+
         return ((exchange, chain) -> {
             if (validator.isSecured.test(exchange.getRequest())) {
                 //header contains token or not
@@ -42,18 +42,14 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                 }
 
                 String authHeader = exchange.getRequest().getHeaders().get(HttpHeaders.AUTHORIZATION).get(0);
+
                 if (authHeader != null && authHeader.startsWith("Bearer ")) {
                     authHeader = authHeader.substring(7);
                 }
                 try {
-//                    //REST call to AUTH service
-//                    template.getForObject("http://IDENTITY-SERVICE//validate?token" + authHeader, String.class);
-
                     Jws<Claims> claimsJws = jwtUtil.validateToken(authHeader);
-
-
                 } catch (Exception e) {
-                    System.out.println("invalid access...!");
+                    logger.debug("Token Validation Failed in AuthenticationFilter of (GATEWAY)..");
                     throw new RuntimeException("un authorized access to application");
                 }
             }

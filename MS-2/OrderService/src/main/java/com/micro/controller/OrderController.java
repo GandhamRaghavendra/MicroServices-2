@@ -4,6 +4,8 @@ import com.micro.model.InventoryItem;
 import com.micro.model.Order;
 import com.micro.model.Product;
 import com.micro.service.OrderService;
+import com.micro.service.ProductService;
+import com.netflix.discovery.converters.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -22,6 +24,9 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private ProductService productService;
+
     private final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
     @PostMapping("/{pid}/{qun}")
@@ -33,10 +38,23 @@ public class OrderController {
 
         MDC.remove("userId");
 
-        Order order = orderService.placeOrder(pid, qun);
+//        Order order = orderService.placeOrder(pid, qun);
+
+        Order order = orderService.newPlaceOrder(pid, qun);
 
         return new ResponseEntity<>(order,HttpStatus.OK);
     }
+
+    @GetMapping("/{pId}")
+    public ResponseEntity<Product> getProductFromOrderService(@PathVariable Integer pId){
+
+        logger.info("Inside '/orders' Controller of OrderService..!");
+
+        Product product = productService.getProductById(pId);
+
+        return new ResponseEntity<>(product,HttpStatus.OK);
+    }
+
 
     @GetMapping("/abc")
     public String abc(){

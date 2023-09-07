@@ -1,6 +1,8 @@
 package com.micro.service;
 
 import com.micro.model.Product;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
@@ -20,9 +22,13 @@ public class ProductService {
     @Autowired
     private RestTemplate restTemplate;
 
+    private final Logger logger = LoggerFactory.getLogger(ProductService.class);
+
 
     @Cacheable(cacheNames = "productsCache", key = "''", unless = "#result == null")
     public List<Product> getAllProducts() {
+
+        logger.info("Inside getAllProducts() of OrderService..!");
 
         String url = "http://localhost:8082/products";
 
@@ -32,4 +38,18 @@ public class ProductService {
 
         return products.getBody();
     }
+
+    @Cacheable(cacheNames = "productCache", key = "#pId", unless = "#result == null")
+    public Product getProductById(Integer pId){
+
+        logger.info("Inside getProductById() of OrderService..!");
+
+        String url = "http://localhost:8082/products/"+pId;
+
+        ResponseEntity<Product> product = restTemplate
+                .exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<Product>() {});
+
+        return product.getBody();
+    }
+
 }

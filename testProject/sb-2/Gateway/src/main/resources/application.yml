@@ -1,0 +1,15 @@
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: api
+#          uri: http://localhost:8080
+#          predicates:
+#            - Path=/cach/**
+#
+#        - id: fno
+#          uri: http://localhost:8080/fno
+#          predicates:
+#            - Path=/fno/**
+#          filters:
+#            - SetRequestHeader=api-key, futZ90Ky-jm

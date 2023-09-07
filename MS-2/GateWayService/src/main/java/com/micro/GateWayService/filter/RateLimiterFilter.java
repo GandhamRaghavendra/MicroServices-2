@@ -3,6 +3,8 @@ package com.micro.GateWayService.filter;
 import com.micro.GateWayService.util.JwtUtil;
 import com.micro.GateWayService.util.RateLimit;
 import com.micro.GateWayService.util.RateLimitUtil;
+import com.micro.GateWayService.util.UuidService;
+import com.netflix.discovery.converters.Auto;
 import io.github.bucket4j.Bandwidth;
 import io.github.bucket4j.Bucket;
 import io.jsonwebtoken.Claims;
@@ -27,6 +29,9 @@ public class RateLimiterFilter extends AbstractGatewayFilterFactory<RateLimiterF
 
     @Autowired
     private JwtUtil jwtUtil;
+    
+    @Autowired
+    private UuidService uuidService;
 
     private final Map<String, Bucket> userBuckets = new ConcurrentHashMap<>();
 
@@ -37,7 +42,7 @@ public class RateLimiterFilter extends AbstractGatewayFilterFactory<RateLimiterF
     @Override
     public GatewayFilter apply(Config config) {
 
-        logger.info("Inside RateLimitFilter..!");
+        logger.info("Inside RateLimitFilter of (GATEWAY)..");
 
         return ((exchange, chain) -> {
             if (validator.isSecured.test(exchange.getRequest())) {
@@ -80,7 +85,16 @@ public class RateLimiterFilter extends AbstractGatewayFilterFactory<RateLimiterF
                     String key = (String) claimsJws.getBody().get("key");
 
 
-                    logger.info("UserName: "+name);
+                    // setting requestId and userKey to headers.
+                    exchange.getRequest().mutate()
+                                    .header("RequestId", uuidService.generateAndReturnUUID())
+                                    .header("key", key);
+
+                    String requestId = exchange.getRequest().getHeaders().getFirst("RequestId");
+                    String userKey = exchange.getRequest().getHeaders().getFirst("key");
+
+                    logger.info("RequestId set to headers: {}", requestId);
+                    logger.info("User_key set to headers: {}", userKey);
 
                     // if bucket is not present.
                     if(!userBuckets.containsKey(name)){

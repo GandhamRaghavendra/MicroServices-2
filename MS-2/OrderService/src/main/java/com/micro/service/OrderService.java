@@ -31,56 +31,56 @@ public class OrderService {
 
     private final Logger logger = LoggerFactory.getLogger(OrderService.class);
 
-    public Order placeOrder(Integer pid, Integer qun){
-
-        MDC.put("userId","unique_User_Id");
-
-        logger.info("Inside Service Method (ORDER_SERVICE)..!");
-
-        MDC.remove("userId");
-
-        // this is for checking product.
-        String url1 = "http://localhost:8082/products/"+pid;
-
-        // this is for getting inventory details.
-        String url2 = "http://localhost:8081/inventory/"+pid;
-
-        // this is for checking order is possible of not.
-        String url3 = "http://localhost:8081/inventory/"+pid+"/"+qun;
-
-
-        Product product = restTemplate.exchange(url1, HttpMethod.GET, null, new ParameterizedTypeReference<Product>() {
-        }).getBody();
-
-        InventoryItem inventoryItem = restTemplate.exchange(url2, HttpMethod.GET, null, new ParameterizedTypeReference<InventoryItem>() {
-        }).getBody();
-
-        ResponseEntity<String> responseEntity = restTemplate.exchange(url3, HttpMethod.POST, null, String.class);
-        String res = responseEntity.getBody();
-
-        System.out.println(res);
-
-        if(res.equals("Done")){
-
-
-            Order order = new Order();
-
-            order.setQuantity(qun);
-            order.setProductId(product.getProductId());
-            order.setTotalPrice(qun * product.getPrice());
-            order.setPName(product.getName());
-
-            return order;
-        }
-
-        MDC.put("userId","unique_User_Id");
-
-        logger.info("Service Method End (ORDER_SERVICE)..!");
-
-        MDC.remove("userId");
-
-        throw new RuntimeException("Insufficient Qun..!");
-    }
+//    public Order placeOrder(Integer pid, Integer qun){
+//
+//        MDC.put("userId","unique_User_Id");
+//
+//        logger.info("Inside Service Method (ORDER_SERVICE)..!");
+//
+//        MDC.remove("userId");
+//
+//        // this is for checking product.
+//        String url1 = "http://localhost:8082/products/"+pid;
+//
+//        // this is for getting inventory details.
+//        String url2 = "http://localhost:8081/inventory/"+pid;
+//
+//        // this is for checking order is possible of not.
+//        String url3 = "http://localhost:8081/inventory/"+pid+"/"+qun;
+//
+//
+//        Product product = restTemplate.exchange(url1, HttpMethod.GET, null, new ParameterizedTypeReference<Product>() {
+//        }).getBody();
+//
+//        InventoryItem inventoryItem = restTemplate.exchange(url2, HttpMethod.GET, null, new ParameterizedTypeReference<InventoryItem>() {
+//        }).getBody();
+//
+//        ResponseEntity<String> responseEntity = restTemplate.exchange(url3, HttpMethod.POST, null, String.class);
+//        String res = responseEntity.getBody();
+//
+//        System.out.println(res);
+//
+//        if(res.equals("Done")){
+//
+//
+//            Order order = new Order();
+//
+//            order.setQuantity(qun);
+//            order.setProductId(product.getProductId());
+//            order.setTotalPrice(qun * product.getPrice());
+//            order.setPName(product.getName());
+//
+//            return order;
+//        }
+//
+//        MDC.put("userId","unique_User_Id");
+//
+//        logger.info("Service Method End (ORDER_SERVICE)..!");
+//
+//        MDC.remove("userId");
+//
+//        throw new RuntimeException("Insufficient Qun..!");
+//    }
 
     public Order newPlaceOrder(Integer pId, Integer qun){
 
@@ -93,14 +93,16 @@ public class OrderService {
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Product not exist with this id: "+pId));
 
-        InventoryItem inventoryItem = inventoryItems.stream()
-                .filter(inv -> inv.getProductId() == pId)
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("Product not exist with this id: " + pId));
+        inventoryService.updateInventoryCache(inventoryItems, pId, qun);
 
+        Order order = new Order();
 
+        order.setProductId(product.getProductId());
+        order.setPName(product.getName());
+        order.setQuantity(qun);
+        order.setTotalPrice(product.getPrice() * qun);
 
-        return null;
+        return order;
     }
 
 }
