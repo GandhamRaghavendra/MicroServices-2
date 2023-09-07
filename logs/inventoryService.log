@@ -1,194 +1,125 @@
-12:20:46.115 INFO  c.micro.InventoryServiceApplication [] - Starting InventoryServiceApplication using Java 17.0.8 with PID 16884 (C:\Users\ibfin-1\Desktop\Raghu's\MicroServices-2\MS-2\InventoryService\target\classes started by ibfin-1 in C:\Users\ibfin-1\Desktop\Raghu's\MicroServices-2)
-12:20:46.119 INFO  c.micro.InventoryServiceApplication [] - No active profile set, falling back to 1 default profile: "default"
-12:20:47.320 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12:20:47.506 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] - Finished Spring Data repository scanning in 176 ms. Found 1 JPA repository interfaces.
-12:20:47.977 INFO  o.s.cloud.context.scope.GenericScope [] - BeanFactory id=9b2c37bd-32e4-3c09-88c0-b464653186a8
-12:20:48.560 INFO  o.s.b.w.e.tomcat.TomcatWebServer [] - Tomcat initialized with port(s): 8081 (http)
-12:20:48.572 INFO  o.a.catalina.core.StandardService [] - Starting service [Tomcat]
-12:20:48.572 INFO  o.a.catalina.core.StandardEngine [] - Starting Servlet engine: [Apache Tomcat/10.1.11]
-12:20:48.701 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [] - Initializing Spring embedded WebApplicationContext
-12:20:48.702 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext [] - Root WebApplicationContext: initialization completed in 2407 ms
-12:20:48.932 INFO  o.h.jpa.internal.util.LogHelper [] - HHH000204: Processing PersistenceUnitInfo [name: default]
-12:20:48.993 INFO  org.hibernate.Version [] - HHH000412: Hibernate ORM core version 6.2.6.Final
-12:20:48.997 INFO  org.hibernate.cfg.Environment [] - HHH000406: Using bytecode reflection optimizer
-12:20:49.223 INFO  o.h.b.i.BytecodeProviderInitiator [] - HHH000021: Bytecode provider name : bytebuddy
-12:20:49.385 INFO  o.s.o.j.p.SpringPersistenceUnitInfo [] - No LoadTimeWeaver setup: ignoring JPA class transformer
-12:20:49.416 INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Starting...
-12:20:49.877 INFO  com.zaxxer.hikari.pool.HikariPool [] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@298263fa
-12:20:49.879 INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Start completed.
-12:20:50.157 INFO  o.h.b.i.BytecodeProviderInitiator [] - HHH000021: Bytecode provider name : bytebuddy
-12:20:50.774 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator [] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-12:20:50.842 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean [] - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12:20:51.296 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12:20:51.969 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration [] - Eureka HTTP Client uses RestTemplate.
-12:20:52.094 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger [] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-12:20:52.122 INFO  o.s.c.n.eureka.InstanceInfoFactory [] - Setting initial instance status as: STARTING
-12:20:52.375 INFO  c.netflix.discovery.DiscoveryClient [] - Initializing Eureka in region us-east-1
-12:20:52.379 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:20:52.399 INFO  c.netflix.discovery.DiscoveryClient [] - Disable delta property : false
-12:20:52.399 INFO  c.netflix.discovery.DiscoveryClient [] - Single vip registry refresh property : null
-12:20:52.399 INFO  c.netflix.discovery.DiscoveryClient [] - Force full registry fetch : false
-12:20:52.399 INFO  c.netflix.discovery.DiscoveryClient [] - Application is null : false
-12:20:52.399 INFO  c.netflix.discovery.DiscoveryClient [] - Registered Applications size is zero : true
-12:20:52.399 INFO  c.netflix.discovery.DiscoveryClient [] - Application version is -1: true
-12:20:52.399 INFO  c.netflix.discovery.DiscoveryClient [] - Getting all instance registry info from the eureka server
-12:20:52.738 INFO  c.netflix.discovery.DiscoveryClient [] - The response status is 200
-12:20:52.741 INFO  c.netflix.discovery.DiscoveryClient [] - Starting heartbeat executor: renew interval is: 30
-12:20:52.743 INFO  c.n.discovery.InstanceInfoReplicator [] - InstanceInfoReplicator onDemand update allowed rate per min is 4
-12:20:52.748 INFO  c.netflix.discovery.DiscoveryClient [] - Discovery Client initialized at timestamp 1692168652747 with initial instances count: 3
-12:20:52.754 INFO  o.s.c.n.e.s.EurekaServiceRegistry [] - Registering application INVENTORYSERVICE with eureka with status UP
-12:20:52.755 INFO  c.netflix.discovery.DiscoveryClient [] - Saw local status change event StatusChangeEvent [timestamp=1692168652755, current=UP, previous=STARTING]
-12:20:52.758 INFO  c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081: registering service...
-12:20:52.789 INFO  o.s.b.w.e.tomcat.TomcatWebServer [] - Tomcat started on port(s): 8081 (http) with context path ''
-12:20:52.791 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration [] - Updating port to 8081
-12:20:52.815 INFO  c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081 - registration status: 204
-12:20:52.886 INFO  c.micro.InventoryServiceApplication [] - Started InventoryServiceApplication in 7.549 seconds (process running for 8.023)
-12:20:52.889 INFO  c.micro.util.MyInventoryStartupTask [unique_User_Id] - Performing startup operations...
-12:20:53.156 INFO  c.micro.util.MyInventoryStartupTask [unique_User_Id] - Insertion Done..!
-12:25:52.406 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:27:45.479 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-12:27:45.482 INFO  o.s.web.servlet.DispatcherServlet [] - Initializing Servlet 'dispatcherServlet'
-12:27:45.491 INFO  o.s.web.servlet.DispatcherServlet [] - Completed initialization in 7 ms
-12:28:10.583 INFO  c.m.controller.InventoryController [unique_User_Id] - Inside Inventory Controller Method..!
-12:30:52.411 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:35:52.416 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:38:54.902 INFO  c.m.controller.InventoryController [unique_User_Id] - Inside Inventory Controller Method..!
-12:40:52.421 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:45:52.432 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:50:52.435 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:55:52.468 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:00:52.646 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:05:52.662 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:10:52.664 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:15:52.681 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:20:52.700 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:25:52.707 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:30:52.718 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:35:52.724 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:40:52.901 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:45:52.937 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:50:52.955 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:55:52.965 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:00:52.993 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:05:53.007 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:10:53.020 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:15:53.030 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:20:53.057 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:25:53.063 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:30:53.085 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:35:53.264 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:40:53.270 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:45:53.282 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:50:53.297 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:55:53.308 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:00:53.317 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:05:53.319 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:10:53.327 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:15:53.343 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:20:53.346 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:25:53.352 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:30:53.364 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:35:53.365 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:40:53.375 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:45:53.391 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:50:53.403 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:55:53.428 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:00:53.454 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:05:53.467 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:10:53.514 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:15:53.550 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:20:53.561 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:25:53.566 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:30:53.579 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:35:53.594 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:40:53.611 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:45:53.625 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:50:53.630 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:55:53.638 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:00:53.644 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:05:53.654 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:10:53.658 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:15:53.669 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:20:53.699 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:25:53.717 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:30:53.728 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:35:53.737 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:40:53.758 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:45:53.769 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:50:53.835 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:55:53.867 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:00:53.879 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:05:53.887 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:10:53.901 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:15:53.912 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:20:53.918 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:25:53.924 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:30:53.936 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:35:53.946 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:40:53.955 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:45:53.967 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:50:53.974 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:55:53.989 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:00:54.022 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:05:54.038 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:10:54.056 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:15:54.068 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:20:54.094 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:25:54.111 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:30:54.153 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:35:54.207 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:40:54.221 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:45:54.232 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:50:54.244 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:55:54.260 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:00:54.289 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:05:54.313 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:10:54.337 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:15:54.400 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:20:54.426 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:25:54.461 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:30:54.528 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:35:54.621 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:40:54.643 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:45:54.652 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:50:54.667 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:55:54.683 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:00:54.703 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:05:54.715 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:10:54.738 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:15:54.746 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:20:54.760 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:25:54.765 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:30:54.791 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:32:31.508 INFO  o.s.c.n.e.s.EurekaServiceRegistry [] - Unregistering application INVENTORYSERVICE with eureka with status DOWN
-21:32:31.517 INFO  c.netflix.discovery.DiscoveryClient [] - Saw local status change event StatusChangeEvent [timestamp=1692201751508, current=DOWN, previous=UP]
-21:32:31.517 INFO  c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081: registering service...
-21:32:31.657 INFO  c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081 - registration status: 204
-21:32:32.160 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean [] - Closing JPA EntityManagerFactory for persistence unit 'default'
-21:32:32.254 INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Shutdown initiated...
-21:32:32.302 INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Shutdown completed.
-21:32:32.302 INFO  c.netflix.discovery.DiscoveryClient [] - Shutting down DiscoveryClient ...
-21:32:34.593 INFO  c.n.d.s.t.d.RedirectingEurekaHttpClient [] - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on PUT request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on PUT request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+16:04:17.594 INFO  c.micro.InventoryServiceApplication [Request_Id: ] [User_key: ] - Starting InventoryServiceApplication using Java 17.0.8 with PID 7432 (C:\Users\ibfin-1\Desktop\Raghavendra\MicroServices-2\MS-2\InventoryService\target\classes started by ibfin-1 in C:\Users\ibfin-1\Desktop\Raghavendra\MicroServices-2)
+16:04:17.597 INFO  c.micro.InventoryServiceApplication [Request_Id: ] [User_key: ] - No active profile set, falling back to 1 default profile: "default"
+16:04:18.683 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [Request_Id: ] [User_key: ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:04:18.892 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [Request_Id: ] [User_key: ] - Finished Spring Data repository scanning in 195 ms. Found 1 JPA repository interfaces.
+16:04:19.389 INFO  o.s.cloud.context.scope.GenericScope [Request_Id: ] [User_key: ] - BeanFactory id=9b2c37bd-32e4-3c09-88c0-b464653186a8
+16:04:20.182 INFO  o.s.b.w.e.tomcat.TomcatWebServer [Request_Id: ] [User_key: ] - Tomcat initialized with port(s): 8081 (http)
+16:04:20.197 INFO  o.a.catalina.core.StandardService [Request_Id: ] [User_key: ] - Starting service [Tomcat]
+16:04:20.197 INFO  o.a.catalina.core.StandardEngine [Request_Id: ] [User_key: ] - Starting Servlet engine: [Apache Tomcat/10.1.11]
+16:04:20.338 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [Request_Id: ] [User_key: ] - Initializing Spring embedded WebApplicationContext
+16:04:20.339 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext [Request_Id: ] [User_key: ] - Root WebApplicationContext: initialization completed in 2619 ms
+16:04:20.588 INFO  o.h.jpa.internal.util.LogHelper [Request_Id: ] [User_key: ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:04:20.673 INFO  org.hibernate.Version [Request_Id: ] [User_key: ] - HHH000412: Hibernate ORM core version 6.2.6.Final
+16:04:20.676 INFO  org.hibernate.cfg.Environment [Request_Id: ] [User_key: ] - HHH000406: Using bytecode reflection optimizer
+16:04:20.854 INFO  o.h.b.i.BytecodeProviderInitiator [Request_Id: ] [User_key: ] - HHH000021: Bytecode provider name : bytebuddy
+16:04:21.107 INFO  o.s.o.j.p.SpringPersistenceUnitInfo [Request_Id: ] [User_key: ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+16:04:21.148 INFO  com.zaxxer.hikari.HikariDataSource [Request_Id: ] [User_key: ] - HikariPool-1 - Starting...
+16:04:21.592 INFO  com.zaxxer.hikari.pool.HikariPool [Request_Id: ] [User_key: ] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e98b933
+16:04:21.594 INFO  com.zaxxer.hikari.HikariDataSource [Request_Id: ] [User_key: ] - HikariPool-1 - Start completed.
+16:04:22.051 INFO  o.h.b.i.BytecodeProviderInitiator [Request_Id: ] [User_key: ] - HHH000021: Bytecode provider name : bytebuddy
+16:04:22.771 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator [Request_Id: ] [User_key: ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:04:22.843 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean [Request_Id: ] [User_key: ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:04:23.331 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [Request_Id: ] [User_key: ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16:04:23.931 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration [Request_Id: ] [User_key: ] - Eureka HTTP Client uses RestTemplate.
+16:04:24.109 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger [Request_Id: ] [User_key: ] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+16:04:24.133 INFO  o.s.c.n.eureka.InstanceInfoFactory [Request_Id: ] [User_key: ] - Setting initial instance status as: STARTING
+16:04:24.250 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Initializing Eureka in region us-east-1
+16:04:24.255 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:04:24.276 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Disable delta property : false
+16:04:24.276 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Single vip registry refresh property : null
+16:04:24.276 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Force full registry fetch : false
+16:04:24.276 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Application is null : false
+16:04:24.276 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Registered Applications size is zero : true
+16:04:24.276 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Application version is -1: true
+16:04:24.276 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Getting all instance registry info from the eureka server
+16:04:24.784 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - The response status is 200
+16:04:24.787 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Starting heartbeat executor: renew interval is: 30
+16:04:24.791 INFO  c.n.discovery.InstanceInfoReplicator [Request_Id: ] [User_key: ] - InstanceInfoReplicator onDemand update allowed rate per min is 4
+16:04:24.799 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Discovery Client initialized at timestamp 1692354864797 with initial instances count: 3
+16:04:24.804 INFO  o.s.c.n.e.s.EurekaServiceRegistry [Request_Id: ] [User_key: ] - Registering application INVENTORYSERVICE with eureka with status UP
+16:04:24.812 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Saw local status change event StatusChangeEvent [timestamp=1692354864812, current=UP, previous=STARTING]
+16:04:24.814 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - DiscoveryClient_INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081: registering service...
+16:04:24.851 INFO  o.s.b.w.e.tomcat.TomcatWebServer [Request_Id: ] [User_key: ] - Tomcat started on port(s): 8081 (http) with context path ''
+16:04:24.852 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration [Request_Id: ] [User_key: ] - Updating port to 8081
+16:04:24.875 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - DiscoveryClient_INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081 - registration status: 204
+16:04:24.967 INFO  c.micro.InventoryServiceApplication [Request_Id: ] [User_key: ] - Started InventoryServiceApplication in 8.074 seconds (process running for 8.593)
+16:04:24.971 INFO  c.micro.util.MyInventoryStartupTask [Request_Id: ] [User_key: ] - Performing startup operations...
+16:04:25.078 INFO  c.micro.util.MyInventoryStartupTask [Request_Id: ] [User_key: ] - Insertion Done..!
+16:09:24.307 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:14:24.339 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:19:24.353 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:24:24.374 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:29:24.382 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:34:24.389 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:39:24.403 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:44:24.405 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:49:24.408 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:54:24.411 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:59:24.416 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:04:24.430 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:09:24.445 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:14:24.451 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:19:24.467 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:24:24.476 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:29:24.489 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:34:24.498 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:39:24.512 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:44:24.526 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:49:24.532 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:54:24.542 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:59:24.547 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+18:04:24.556 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+18:09:24.560 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+18:12:40.732 INFO  o.s.c.n.e.s.EurekaServiceRegistry [Request_Id: ] [User_key: ] - Unregistering application INVENTORYSERVICE with eureka with status DOWN
+18:12:40.732 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Saw local status change event StatusChangeEvent [timestamp=1692362560732, current=DOWN, previous=UP]
+18:12:40.732 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - DiscoveryClient_INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081: registering service...
+18:12:40.848 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - DiscoveryClient_INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081 - registration status: 204
+18:12:41.404 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean [Request_Id: ] [User_key: ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+18:12:41.495 INFO  com.zaxxer.hikari.HikariDataSource [Request_Id: ] [User_key: ] - HikariPool-1 - Shutdown initiated...
+18:12:41.546 INFO  com.zaxxer.hikari.HikariDataSource [Request_Id: ] [User_key: ] - HikariPool-1 - Shutdown completed.
+18:12:41.548 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Shutting down DiscoveryClient ...
+18:12:44.571 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Unregistering ...
+18:12:44.637 INFO  c.n.d.s.t.d.RedirectingEurekaHttpClient [Request_Id: ] [User_key: ] - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:888)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:868)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:764)
 	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:646)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.sendHeartBeat(RestTemplateEurekaHttpClient.java:103)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
 	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
 	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:837)
-	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1401)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:916)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:892)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:191)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:184)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:200)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1189)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1182)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1107)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1076)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:173)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1027)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:139)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:108)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
 	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
@@ -228,89 +159,10 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
 	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:862)
-	... 19 more
+	... 39 more
 
-21:32:34.595 WARN  c.n.d.s.t.d.RetryableEurekaHttpClient [] - Request execution failed with message: I/O error on PUT request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
-21:32:34.647 INFO  c.n.d.s.t.d.RedirectingEurekaHttpClient [] - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on PUT request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on PUT request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
-	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:888)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:868)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:764)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:646)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.sendHeartBeat(RestTemplateEurekaHttpClient.java:103)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:837)
-	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1401)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:633)
-	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.lambda$connectSocket$0(PlainConnectionSocketFactory.java:85)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
-	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:84)
-	at org.apache.hc.client5.http.socket.ConnectionSocketFactory.connectSocket(ConnectionSocketFactory.java:113)
-	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:181)
-	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:447)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:162)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:172)
-	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:142)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:152)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:106)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:93)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:101)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$0(RestTemplateTransportClientFactory.java:143)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:87)
-	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:71)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:862)
-	... 20 more
-
-21:32:34.649 WARN  c.n.d.s.t.d.RetryableEurekaHttpClient [] - Request execution failed with message: I/O error on PUT request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
-21:32:34.649 ERROR c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081 - was unable to send heartbeat!
-com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:837)
-	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1401)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-21:32:35.327 INFO  c.netflix.discovery.DiscoveryClient [] - Unregistering ...
-21:32:35.351 INFO  c.n.d.s.t.d.RedirectingEurekaHttpClient [] - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+18:12:44.637 WARN  c.n.d.s.t.d.RetryableEurekaHttpClient [Request_Id: ] [User_key: ] - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+18:12:44.653 INFO  c.n.d.s.t.d.RedirectingEurekaHttpClient [Request_Id: ] [User_key: ] - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:888)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:868)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:764)
@@ -393,8 +245,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:862)
 	... 40 more
 
-21:32:35.352 WARN  c.n.d.s.t.d.RetryableEurekaHttpClient [] - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
-21:32:35.353 ERROR c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081 - de-registration failedCannot execute request on any known server
+18:12:44.653 WARN  c.n.d.s.t.d.RetryableEurekaHttpClient [Request_Id: ] [User_key: ] - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+18:12:44.653 ERROR c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - DiscoveryClient_INVENTORYSERVICE/host.docker.internal:INVENTORYSERVICE:8081 - de-registration failedCannot execute request on any known server
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
@@ -428,4 +280,4 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
 	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:108)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-21:32:35.382 INFO  c.netflix.discovery.DiscoveryClient [] - Completed shut down of DiscoveryClient
+18:12:44.701 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Completed shut down of DiscoveryClient

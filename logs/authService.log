@@ -1,732 +1,79 @@
-11:59:52.541 INFO  c.m.UserAuthServiceServiceApplication [] - Starting UserAuthServiceServiceApplication using Java 17.0.8 with PID 15468 (C:\Users\ibfin-1\Desktop\Raghu's\MicroServices-2\MS-2\UserAuthService\target\classes started by ibfin-1 in C:\Users\ibfin-1\Desktop\Raghu's\MicroServices-2)
-11:59:52.548 INFO  c.m.UserAuthServiceServiceApplication [] - No active profile set, falling back to 1 default profile: "default"
-11:59:54.996 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-11:59:55.134 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] - Finished Spring Data repository scanning in 129 ms. Found 1 JPA repository interfaces.
-11:59:55.662 INFO  o.s.cloud.context.scope.GenericScope [] - BeanFactory id=fa87ac5d-07cc-36a9-bf51-0fcac3a181b7
-11:59:56.575 INFO  o.s.b.w.e.tomcat.TomcatWebServer [] - Tomcat initialized with port(s): 8085 (http)
-11:59:56.597 INFO  o.a.catalina.core.StandardService [] - Starting service [Tomcat]
-11:59:56.597 INFO  o.a.catalina.core.StandardEngine [] - Starting Servlet engine: [Apache Tomcat/10.1.11]
-11:59:56.734 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [] - Initializing Spring embedded WebApplicationContext
-11:59:56.734 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext [] - Root WebApplicationContext: initialization completed in 4094 ms
-11:59:57.725 INFO  o.a.catalina.core.StandardContext [] - Suspicious URL pattern: [/auths/**] in context [], see sections 12.1 and 12.2 of the Servlet specification
-11:59:57.725 INFO  o.a.catalina.core.StandardContext [] - Suspicious URL pattern: [/auths/all/**] in context [], see sections 12.1 and 12.2 of the Servlet specification
-11:59:57.896 INFO  o.h.jpa.internal.util.LogHelper [] - HHH000204: Processing PersistenceUnitInfo [name: default]
-11:59:57.950 INFO  org.hibernate.Version [] - HHH000412: Hibernate ORM core version 6.2.6.Final
-11:59:57.953 INFO  org.hibernate.cfg.Environment [] - HHH000406: Using bytecode reflection optimizer
-11:59:58.125 INFO  o.h.b.i.BytecodeProviderInitiator [] - HHH000021: Bytecode provider name : bytebuddy
-11:59:58.276 INFO  o.s.o.j.p.SpringPersistenceUnitInfo [] - No LoadTimeWeaver setup: ignoring JPA class transformer
-11:59:58.291 INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Starting...
-11:59:59.638 ERROR com.zaxxer.hikari.pool.HikariPool [] - HikariPool-1 - Exception during pool initialization.
-java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:316)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:152)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
-	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1817)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1155)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at com.micro.UserAuthServiceServiceApplication.main(UserAuthServiceServiceApplication.java:10)
-11:59:59.644 WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator [] - HHH000342: Could not obtain connection to query metadata
-java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:316)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:152)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
-	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1817)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1155)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at com.micro.UserAuthServiceServiceApplication.main(UserAuthServiceServiceApplication.java:10)
-11:59:59.646 ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean [] - Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-11:59:59.646 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-12:00:00.653 WARN  z.r.AsyncReporter$BoundedAsyncReporter [] - Timed out waiting for in-flight spans to send
-12:00:00.659 INFO  o.a.catalina.core.StandardService [] - Stopping service [Tomcat]
-12:00:00.677 INFO  o.s.b.a.l.ConditionEvaluationReportLogger [] - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-12:00:00.692 ERROR o.s.boot.SpringApplication [] - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1155)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at com.micro.UserAuthServiceServiceApplication.main(UserAuthServiceServiceApplication.java:10)
-Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:277)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
-	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1817)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
-	... 16 common frames omitted
-Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:188)
-	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:274)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
-	... 31 common frames omitted
-12:10:55.438 INFO  c.m.UserAuthServiceServiceApplication [] - Starting UserAuthServiceServiceApplication using Java 17.0.8 with PID 18156 (C:\Users\ibfin-1\Desktop\Raghu's\MicroServices-2\MS-2\UserAuthService\target\classes started by ibfin-1 in C:\Users\ibfin-1\Desktop\Raghu's\MicroServices-2)
-12:10:55.443 INFO  c.m.UserAuthServiceServiceApplication [] - No active profile set, falling back to 1 default profile: "default"
-12:10:57.197 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12:10:57.378 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] - Finished Spring Data repository scanning in 167 ms. Found 1 JPA repository interfaces.
-12:10:57.758 INFO  o.s.cloud.context.scope.GenericScope [] - BeanFactory id=fa87ac5d-07cc-36a9-bf51-0fcac3a181b7
-12:10:58.330 INFO  o.s.b.w.e.tomcat.TomcatWebServer [] - Tomcat initialized with port(s): 8085 (http)
-12:10:58.344 INFO  o.a.catalina.core.StandardService [] - Starting service [Tomcat]
-12:10:58.345 INFO  o.a.catalina.core.StandardEngine [] - Starting Servlet engine: [Apache Tomcat/10.1.11]
-12:10:58.474 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [] - Initializing Spring embedded WebApplicationContext
-12:10:58.474 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext [] - Root WebApplicationContext: initialization completed in 2940 ms
-12:10:59.063 INFO  o.a.catalina.core.StandardContext [] - Suspicious URL pattern: [/auths/**] in context [], see sections 12.1 and 12.2 of the Servlet specification
-12:10:59.063 INFO  o.a.catalina.core.StandardContext [] - Suspicious URL pattern: [/auths/all/**] in context [], see sections 12.1 and 12.2 of the Servlet specification
-12:10:59.235 INFO  o.h.jpa.internal.util.LogHelper [] - HHH000204: Processing PersistenceUnitInfo [name: default]
-12:10:59.299 INFO  org.hibernate.Version [] - HHH000412: Hibernate ORM core version 6.2.6.Final
-12:10:59.305 INFO  org.hibernate.cfg.Environment [] - HHH000406: Using bytecode reflection optimizer
-12:10:59.447 INFO  o.h.b.i.BytecodeProviderInitiator [] - HHH000021: Bytecode provider name : bytebuddy
-12:10:59.592 INFO  o.s.o.j.p.SpringPersistenceUnitInfo [] - No LoadTimeWeaver setup: ignoring JPA class transformer
-12:10:59.615 INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Starting...
-12:11:00.899 ERROR com.zaxxer.hikari.pool.HikariPool [] - HikariPool-1 - Exception during pool initialization.
-java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:316)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:152)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
-	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1817)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1155)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at com.micro.UserAuthServiceServiceApplication.main(UserAuthServiceServiceApplication.java:10)
-12:11:00.905 WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator [] - HHH000342: Could not obtain connection to query metadata
-java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:316)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:152)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
-	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1817)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1155)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at com.micro.UserAuthServiceServiceApplication.main(UserAuthServiceServiceApplication.java:10)
-12:11:00.906 ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean [] - Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-12:11:00.907 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-12:11:01.910 WARN  z.r.AsyncReporter$BoundedAsyncReporter [] - Timed out waiting for in-flight spans to send
-12:11:01.916 INFO  o.a.catalina.core.StandardService [] - Stopping service [Tomcat]
-12:11:01.935 INFO  o.s.b.a.l.ConditionEvaluationReportLogger [] - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-12:11:01.950 ERROR o.s.boot.SpringApplication [] - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1155)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at com.micro.UserAuthServiceServiceApplication.main(UserAuthServiceServiceApplication.java:10)
-Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:277)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
-	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:230)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:198)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1817)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
-	... 16 common frames omitted
-Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:188)
-	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:274)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
-	... 31 common frames omitted
-12:13:46.923 INFO  c.m.UserAuthServiceServiceApplication [] - Starting UserAuthServiceServiceApplication using Java 17.0.8 with PID 8852 (C:\Users\ibfin-1\Desktop\Raghu's\MicroServices-2\MS-2\UserAuthService\target\classes started by ibfin-1 in C:\Users\ibfin-1\Desktop\Raghu's\MicroServices-2)
-12:13:47.074 INFO  c.m.UserAuthServiceServiceApplication [] - No active profile set, falling back to 1 default profile: "default"
-12:13:49.232 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12:13:49.508 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] - Finished Spring Data repository scanning in 257 ms. Found 1 JPA repository interfaces.
-12:13:49.902 INFO  o.s.cloud.context.scope.GenericScope [] - BeanFactory id=fa87ac5d-07cc-36a9-bf51-0fcac3a181b7
-12:13:50.473 INFO  o.s.b.w.e.tomcat.TomcatWebServer [] - Tomcat initialized with port(s): 8085 (http)
-12:13:50.486 INFO  o.a.catalina.core.StandardService [] - Starting service [Tomcat]
-12:13:50.487 INFO  o.a.catalina.core.StandardEngine [] - Starting Servlet engine: [Apache Tomcat/10.1.11]
-12:13:50.617 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [] - Initializing Spring embedded WebApplicationContext
-12:13:50.618 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext [] - Root WebApplicationContext: initialization completed in 3459 ms
-12:13:51.246 INFO  o.a.catalina.core.StandardContext [] - Suspicious URL pattern: [/auths/**] in context [], see sections 12.1 and 12.2 of the Servlet specification
-12:13:51.246 INFO  o.a.catalina.core.StandardContext [] - Suspicious URL pattern: [/auths/all/**] in context [], see sections 12.1 and 12.2 of the Servlet specification
-12:13:51.422 INFO  o.h.jpa.internal.util.LogHelper [] - HHH000204: Processing PersistenceUnitInfo [name: default]
-12:13:51.506 INFO  org.hibernate.Version [] - HHH000412: Hibernate ORM core version 6.2.6.Final
-12:13:51.509 INFO  org.hibernate.cfg.Environment [] - HHH000406: Using bytecode reflection optimizer
-12:13:51.676 INFO  o.h.b.i.BytecodeProviderInitiator [] - HHH000021: Bytecode provider name : bytebuddy
-12:13:51.841 INFO  o.s.o.j.p.SpringPersistenceUnitInfo [] - No LoadTimeWeaver setup: ignoring JPA class transformer
-12:13:51.860 INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Starting...
-12:13:52.203 INFO  com.zaxxer.hikari.pool.HikariPool [] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@154b0748
-12:13:52.205 INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Start completed.
-12:13:52.660 INFO  o.h.b.i.BytecodeProviderInitiator [] - HHH000021: Bytecode provider name : bytebuddy
-12:13:53.328 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator [] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-12:13:53.624 WARN  o.h.t.s.i.ExceptionHandlerLoggedImpl [] - GenerationTarget encountered exception accepting command : Error executing DDL "
-    alter table user_data_roles 
-       modify column user_role  enum ('ADMIN','GUEST','USER')" via JDBC [Data truncated for column 'user_role' at row 2]
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
-    alter table user_data_roles 
-       modify column user_role  enum ('ADMIN','GUEST','USER')" via JDBC [Data truncated for column 'user_role' at row 2]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:92)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:574)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:514)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:333)
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:284)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:143)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140)
-	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:292)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:431)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1455)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1817)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1155)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:436)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at com.micro.UserAuthServiceServiceApplication.main(UserAuthServiceServiceApplication.java:10)
-Caused by: java.sql.SQLException: Data truncated for column 'user_role' at row 2
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:78)
-	... 38 common frames omitted
-12:13:53.668 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean [] - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12:13:54.429 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12:13:55.072 INFO  o.s.b.a.e.web.EndpointLinksResolver [] - Exposing 1 endpoint(s) beneath base path '/actuator'
-12:13:55.147 INFO  o.s.s.web.DefaultSecurityFilterChain [] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3a4e6da6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73e0c775, org.springframework.security.web.context.SecurityContextHolderFilter@48971262, org.springframework.security.web.header.HeaderWriterFilter@42626e86, org.springframework.security.web.authentication.logout.LogoutFilter@19544627, com.micro.filter.JwtValidationFilter@213d5189, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@67b5da40, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75f67fe5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@59845cb3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@70eced1f, org.springframework.security.web.access.ExceptionTranslationFilter@9063080, org.springframework.security.web.access.intercept.AuthorizationFilter@5f65a6d7]
-12:13:55.631 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration [] - Eureka HTTP Client uses RestTemplate.
-12:13:55.689 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger [] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-12:13:55.756 INFO  o.s.c.n.eureka.InstanceInfoFactory [] - Setting initial instance status as: STARTING
-12:13:55.831 INFO  c.netflix.discovery.DiscoveryClient [] - Initializing Eureka in region us-east-1
-12:13:55.839 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:13:55.890 INFO  c.netflix.discovery.DiscoveryClient [] - Disable delta property : false
-12:13:55.891 INFO  c.netflix.discovery.DiscoveryClient [] - Single vip registry refresh property : null
-12:13:55.891 INFO  c.netflix.discovery.DiscoveryClient [] - Force full registry fetch : false
-12:13:55.891 INFO  c.netflix.discovery.DiscoveryClient [] - Application is null : false
-12:13:55.891 INFO  c.netflix.discovery.DiscoveryClient [] - Registered Applications size is zero : true
-12:13:55.891 INFO  c.netflix.discovery.DiscoveryClient [] - Application version is -1: true
-12:13:55.891 INFO  c.netflix.discovery.DiscoveryClient [] - Getting all instance registry info from the eureka server
-12:13:56.190 INFO  c.netflix.discovery.DiscoveryClient [] - The response status is 200
-12:13:56.192 INFO  c.netflix.discovery.DiscoveryClient [] - Starting heartbeat executor: renew interval is: 30
-12:13:56.195 INFO  c.n.discovery.InstanceInfoReplicator [] - InstanceInfoReplicator onDemand update allowed rate per min is 4
-12:13:56.201 INFO  c.netflix.discovery.DiscoveryClient [] - Discovery Client initialized at timestamp 1692168236200 with initial instances count: 1
-12:13:56.204 INFO  o.s.c.n.e.s.EurekaServiceRegistry [] - Registering application AUTHSERVICE with eureka with status UP
-12:13:56.205 INFO  c.netflix.discovery.DiscoveryClient [] - Saw local status change event StatusChangeEvent [timestamp=1692168236205, current=UP, previous=STARTING]
-12:13:56.207 INFO  c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085: registering service...
-12:13:56.239 INFO  o.s.b.w.e.tomcat.TomcatWebServer [] - Tomcat started on port(s): 8085 (http) with context path ''
-12:13:56.241 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration [] - Updating port to 8085
-12:13:56.260 INFO  c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085 - registration status: 204
-12:13:56.340 INFO  c.m.UserAuthServiceServiceApplication [] - Started UserAuthServiceServiceApplication in 10.845 seconds (process running for 11.525)
-12:13:56.348 INFO  com.micro.util.MyStartupTack [unique_User_Id] - Inside Startup Method..!
-12:13:56.549 INFO  com.micro.util.MyStartupTack [unique_User_Id] - Data Already Present in DB..
-12:13:56.614 INFO  o.s.b.a.l.ConditionEvaluationReportLogger [unique_User_Id] - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-12:13:56.639 ERROR o.s.boot.SpringApplication [unique_User_Id] - Application run failed
-java.lang.IllegalStateException: Failed to execute ApplicationRunner
-	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765)
-	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:752)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:319)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
-	at com.micro.UserAuthServiceServiceApplication.main(UserAuthServiceServiceApplication.java:10)
-Caused by: org.springframework.dao.InvalidDataAccessApiUsageException: No enum constant com.micro.entity.Role.ROLE_GUEST
-	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:371)
-	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:234)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:550)
-	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
-	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:242)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:152)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:244)
-	at jdk.proxy2/jdk.proxy2.$Proxy139.findAll(Unknown Source)
-	at com.micro.util.MyStartupTack.run(MyStartupTack.java:53)
-	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:762)
-	... 5 common frames omitted
-Caused by: java.lang.IllegalArgumentException: No enum constant com.micro.entity.Role.ROLE_GUEST
-	at java.base/java.lang.Enum.valueOf(Enum.java:273)
-	at org.hibernate.type.descriptor.java.EnumJavaType.fromName(EnumJavaType.java:231)
-	at org.hibernate.type.descriptor.converter.internal.NamedEnumValueConverter.toDomainValue(NamedEnumValueConverter.java:53)
-	at org.hibernate.type.descriptor.converter.internal.NamedEnumValueConverter.toDomainValue(NamedEnumValueConverter.java:27)
-	at org.hibernate.sql.results.graph.basic.BasicResultAssembler.assemble(BasicResultAssembler.java:82)
-	at org.hibernate.sql.results.graph.DomainResultAssembler.assemble(DomainResultAssembler.java:33)
-	at org.hibernate.sql.results.graph.collection.internal.SetInitializer.readCollectionRow(SetInitializer.java:56)
-	at org.hibernate.sql.results.graph.collection.internal.AbstractImmediateCollectionInitializer.lambda$initializeInstance$1(AbstractImmediateCollectionInitializer.java:295)
-	at org.hibernate.sql.results.internal.LoadingCollectionEntryImpl.load(LoadingCollectionEntryImpl.java:68)
-	at org.hibernate.sql.results.graph.collection.internal.AbstractImmediateCollectionInitializer.initializeInstance(AbstractImmediateCollectionInitializer.java:294)
-	at org.hibernate.sql.results.internal.InitializersList.initializeInstance(InitializersList.java:70)
-	at org.hibernate.sql.results.internal.StandardRowReader.coordinateInitializers(StandardRowReader.java:111)
-	at org.hibernate.sql.results.internal.StandardRowReader.readRow(StandardRowReader.java:87)
-	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:179)
-	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:361)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:168)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.list(JdbcSelectExecutorStandardImpl.java:93)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:31)
-	at org.hibernate.loader.ast.internal.CollectionLoaderSingleKey.load(CollectionLoaderSingleKey.java:115)
-	at org.hibernate.persister.collection.AbstractCollectionPersister.initialize(AbstractCollectionPersister.java:680)
-	at org.hibernate.event.internal.DefaultInitializeCollectionEventListener.onInitializeCollection(DefaultInitializeCollectionEventListener.java:75)
-	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
-	at org.hibernate.internal.SessionImpl.initializeCollection(SessionImpl.java:1702)
-	at org.hibernate.collection.spi.AbstractPersistentCollection.lambda$initialize$3(AbstractPersistentCollection.java:617)
-	at org.hibernate.collection.spi.AbstractPersistentCollection.withTemporarySessionIfNeeded(AbstractPersistentCollection.java:265)
-	at org.hibernate.collection.spi.AbstractPersistentCollection.initialize(AbstractPersistentCollection.java:615)
-	at org.hibernate.collection.spi.AbstractPersistentCollection.forceInitialization(AbstractPersistentCollection.java:813)
-	at org.hibernate.engine.internal.StatefulPersistenceContext.initializeNonLazyCollections(StatefulPersistenceContext.java:985)
-	at org.hibernate.engine.internal.StatefulPersistenceContext.initializeNonLazyCollections(StatefulPersistenceContext.java:971)
-	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:227)
-	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:361)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:168)
-	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.list(JdbcSelectExecutorStandardImpl.java:93)
-	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:31)
-	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$0(ConcreteSqmSelectQueryPlan.java:110)
-	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:303)
-	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:244)
-	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:518)
-	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:367)
-	at org.hibernate.query.Query.getResultList(Query.java:119)
-	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll(SimpleJpaRepository.java:382)
-	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll(SimpleJpaRepository.java:95)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:288)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:136)
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:120)
-	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
-	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:72)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
-	... 14 common frames omitted
-12:13:56.643 INFO  o.s.c.n.e.s.EurekaServiceRegistry [unique_User_Id] - Unregistering application AUTHSERVICE with eureka with status DOWN
-12:13:56.644 INFO  c.netflix.discovery.DiscoveryClient [unique_User_Id] - Saw local status change event StatusChangeEvent [timestamp=1692168236643, current=DOWN, previous=UP]
-12:13:56.644 INFO  c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085: registering service...
-12:13:56.655 INFO  c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085 - registration status: 204
-12:13:56.673 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean [unique_User_Id] - Closing JPA EntityManagerFactory for persistence unit 'default'
-12:13:56.676 INFO  com.zaxxer.hikari.HikariDataSource [unique_User_Id] - HikariPool-1 - Shutdown initiated...
-12:13:56.690 INFO  com.zaxxer.hikari.HikariDataSource [unique_User_Id] - HikariPool-1 - Shutdown completed.
-12:13:57.695 INFO  c.netflix.discovery.DiscoveryClient [unique_User_Id] - Shutting down DiscoveryClient ...
-12:14:00.705 INFO  c.netflix.discovery.DiscoveryClient [unique_User_Id] - Unregistering ...
-12:14:00.726 INFO  c.netflix.discovery.DiscoveryClient [unique_User_Id] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085 - deregister  status: 200
-12:14:00.738 INFO  c.netflix.discovery.DiscoveryClient [unique_User_Id] - Completed shut down of DiscoveryClient
-12:19:12.380 INFO  c.m.UserAuthServiceServiceApplication [] - Starting UserAuthServiceServiceApplication using Java 17.0.8 with PID 14780 (C:\Users\ibfin-1\Desktop\Raghu's\MicroServices-2\MS-2\UserAuthService\target\classes started by ibfin-1 in C:\Users\ibfin-1\Desktop\Raghu's\MicroServices-2)
-12:19:12.383 INFO  c.m.UserAuthServiceServiceApplication [] - No active profile set, falling back to 1 default profile: "default"
-12:19:14.207 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12:19:14.388 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [] - Finished Spring Data repository scanning in 172 ms. Found 1 JPA repository interfaces.
-12:19:14.916 INFO  o.s.cloud.context.scope.GenericScope [] - BeanFactory id=fa87ac5d-07cc-36a9-bf51-0fcac3a181b7
-12:19:15.536 INFO  o.s.b.w.e.tomcat.TomcatWebServer [] - Tomcat initialized with port(s): 8085 (http)
-12:19:15.553 INFO  o.a.catalina.core.StandardService [] - Starting service [Tomcat]
-12:19:15.554 INFO  o.a.catalina.core.StandardEngine [] - Starting Servlet engine: [Apache Tomcat/10.1.11]
-12:19:15.697 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [] - Initializing Spring embedded WebApplicationContext
-12:19:15.698 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext [] - Root WebApplicationContext: initialization completed in 3193 ms
-12:19:16.538 INFO  o.a.catalina.core.StandardContext [] - Suspicious URL pattern: [/auths/**] in context [], see sections 12.1 and 12.2 of the Servlet specification
-12:19:16.539 INFO  o.a.catalina.core.StandardContext [] - Suspicious URL pattern: [/auths/all/**] in context [], see sections 12.1 and 12.2 of the Servlet specification
-12:19:16.729 INFO  o.h.jpa.internal.util.LogHelper [] - HHH000204: Processing PersistenceUnitInfo [name: default]
-12:19:16.826 INFO  org.hibernate.Version [] - HHH000412: Hibernate ORM core version 6.2.6.Final
-12:19:16.830 INFO  org.hibernate.cfg.Environment [] - HHH000406: Using bytecode reflection optimizer
-12:19:17.038 INFO  o.h.b.i.BytecodeProviderInitiator [] - HHH000021: Bytecode provider name : bytebuddy
-12:19:17.334 INFO  o.s.o.j.p.SpringPersistenceUnitInfo [] - No LoadTimeWeaver setup: ignoring JPA class transformer
-12:19:17.356 INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Starting...
-12:19:18.034 INFO  com.zaxxer.hikari.pool.HikariPool [] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@341964d0
-12:19:18.037 INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Start completed.
-12:19:18.641 INFO  o.h.b.i.BytecodeProviderInitiator [] - HHH000021: Bytecode provider name : bytebuddy
-12:19:20.035 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator [] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-12:19:20.221 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean [] - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12:19:21.053 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12:19:22.455 INFO  o.s.b.a.e.web.EndpointLinksResolver [] - Exposing 1 endpoint(s) beneath base path '/actuator'
-12:19:22.531 INFO  o.s.s.web.DefaultSecurityFilterChain [] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1bfc6e50, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4f74edbf, org.springframework.security.web.context.SecurityContextHolderFilter@6c4f48e2, org.springframework.security.web.header.HeaderWriterFilter@1314ccc1, org.springframework.security.web.authentication.logout.LogoutFilter@1f5aac08, com.micro.filter.JwtValidationFilter@3c1f2651, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@53a3ccc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4194a77f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@500d4de8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5ce9c9e8, org.springframework.security.web.access.ExceptionTranslationFilter@3a2b1f24, org.springframework.security.web.access.intercept.AuthorizationFilter@4ff5711b]
-12:19:23.936 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration [] - Eureka HTTP Client uses RestTemplate.
-12:19:24.051 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger [] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-12:19:24.163 INFO  o.s.c.n.eureka.InstanceInfoFactory [] - Setting initial instance status as: STARTING
-12:19:24.287 INFO  c.netflix.discovery.DiscoveryClient [] - Initializing Eureka in region us-east-1
-12:19:24.292 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:19:24.320 INFO  c.netflix.discovery.DiscoveryClient [] - Disable delta property : false
-12:19:24.320 INFO  c.netflix.discovery.DiscoveryClient [] - Single vip registry refresh property : null
-12:19:24.321 INFO  c.netflix.discovery.DiscoveryClient [] - Force full registry fetch : false
-12:19:24.321 INFO  c.netflix.discovery.DiscoveryClient [] - Application is null : false
-12:19:24.321 INFO  c.netflix.discovery.DiscoveryClient [] - Registered Applications size is zero : true
-12:19:24.321 INFO  c.netflix.discovery.DiscoveryClient [] - Application version is -1: true
-12:19:24.321 INFO  c.netflix.discovery.DiscoveryClient [] - Getting all instance registry info from the eureka server
-12:19:24.835 INFO  c.netflix.discovery.DiscoveryClient [] - The response status is 200
-12:19:24.840 INFO  c.netflix.discovery.DiscoveryClient [] - Starting heartbeat executor: renew interval is: 30
-12:19:24.845 INFO  c.n.discovery.InstanceInfoReplicator [] - InstanceInfoReplicator onDemand update allowed rate per min is 4
-12:19:24.856 INFO  c.netflix.discovery.DiscoveryClient [] - Discovery Client initialized at timestamp 1692168564854 with initial instances count: 2
-12:19:24.867 INFO  o.s.c.n.e.s.EurekaServiceRegistry [] - Registering application AUTHSERVICE with eureka with status UP
-12:19:24.870 INFO  c.netflix.discovery.DiscoveryClient [] - Saw local status change event StatusChangeEvent [timestamp=1692168564870, current=UP, previous=STARTING]
-12:19:24.875 INFO  c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085: registering service...
-12:19:24.934 INFO  c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085 - registration status: 204
-12:19:24.939 INFO  o.s.b.w.e.tomcat.TomcatWebServer [] - Tomcat started on port(s): 8085 (http) with context path ''
-12:19:24.940 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration [] - Updating port to 8085
-12:19:25.244 INFO  c.m.UserAuthServiceServiceApplication [] - Started UserAuthServiceServiceApplication in 13.681 seconds (process running for 14.331)
-12:19:25.267 INFO  com.micro.util.MyStartupTack [unique_User_Id] - Inside Startup Method..!
-12:19:25.712 INFO  com.micro.util.MyStartupTack [unique_User_Id] - Start-up Method Execution Successfully Done..!
-12:24:24.373 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:24:34.145 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-12:24:34.146 INFO  o.s.web.servlet.DispatcherServlet [] - Initializing Servlet 'dispatcherServlet'
-12:24:34.157 INFO  o.s.web.servlet.DispatcherServlet [] - Completed initialization in 11 ms
-12:24:34.515 INFO  com.micro.filter.AdminFilter [unique_User_Id] - Inside AdminFilter of AuthService..!
-12:24:34.515 INFO  com.micro.filter.BasicFilter [unique_User_Id] - Inside BasicFilter of AuthService..!
-12:24:34.555 INFO  c.m.controller.UserDataController [unique_User_Id] - Inside Controller Layer (/token)..!
-12:25:03.460 INFO  com.micro.filter.AdminFilter [unique_User_Id] - Inside AdminFilter of AuthService..!
-12:25:03.461 INFO  com.micro.filter.BasicFilter [unique_User_Id] - Inside BasicFilter of AuthService..!
-12:25:03.461 INFO  c.m.controller.UserDataController [unique_User_Id] - Inside Controller Layer (/token)..!
-12:25:20.234 INFO  com.micro.filter.AdminFilter [unique_User_Id] - Inside AdminFilter of AuthService..!
-12:25:20.236 INFO  com.micro.filter.BasicFilter [unique_User_Id] - Inside BasicFilter of AuthService..!
-12:25:20.236 INFO  c.m.controller.UserDataController [unique_User_Id] - Inside Controller Layer (/token)..!
-12:29:24.392 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:34:24.404 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:39:24.417 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:44:24.427 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:49:24.435 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:54:24.452 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-12:59:24.467 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:04:24.480 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:09:24.484 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:14:24.495 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:19:24.505 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:24:24.515 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:29:24.530 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:34:24.545 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:39:24.561 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:44:24.650 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:49:24.662 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:54:24.668 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-13:59:24.677 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:04:24.684 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:09:24.695 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:14:24.708 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:19:24.721 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:24:24.730 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:29:24.744 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:34:24.757 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:39:24.761 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:44:24.772 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:49:24.785 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:54:24.790 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-14:59:24.797 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:04:24.809 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:09:24.813 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:14:24.820 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:19:24.833 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:24:24.838 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:29:24.844 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:33:18.728 INFO  com.micro.filter.AdminFilter [unique_User_Id] - Inside AdminFilter of AuthService..!
-15:33:18.728 INFO  com.micro.filter.BasicFilter [unique_User_Id] - Inside BasicFilter of AuthService..!
-15:33:18.740 INFO  c.m.controller.UserDataController [unique_User_Id] - Inside Controller Layer (/token)..!
-15:34:24.860 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:39:24.868 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:44:24.874 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:49:24.886 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:54:24.887 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-15:59:24.894 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:04:24.901 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:09:24.908 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:14:24.921 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:19:24.929 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:24:24.938 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:29:24.959 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:34:25.001 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:39:25.007 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:44:25.016 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:49:25.030 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:54:25.036 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-16:59:25.052 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:04:25.064 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:09:25.076 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:14:25.079 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:19:25.114 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:24:25.117 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:29:25.131 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:34:25.140 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:39:25.149 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:44:25.163 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:49:25.170 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:54:25.184 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-17:59:25.216 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:04:25.229 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:09:25.314 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:14:25.319 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:19:25.325 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:24:25.334 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:29:25.343 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:34:25.346 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:39:25.373 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:44:25.384 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:49:25.395 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:54:25.409 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-18:59:25.420 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:04:25.429 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:09:25.439 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:14:25.446 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:19:25.455 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:24:25.473 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:29:25.544 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:34:25.598 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:39:25.645 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:44:25.657 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:49:25.668 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:54:25.681 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-19:59:25.696 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:04:25.743 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:09:25.754 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:14:25.767 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:19:25.798 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:24:25.806 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:29:25.843 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:34:25.928 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:38:53.104 INFO  com.micro.filter.AdminFilter [unique_User_Id] - Inside AdminFilter of AuthService..!
-20:38:53.105 INFO  com.micro.filter.BasicFilter [unique_User_Id] - Inside BasicFilter of AuthService..!
-20:38:53.118 INFO  c.m.controller.UserDataController [unique_User_Id] - Inside Controller Layer (/token)..!
-20:38:54.528 WARN  z.r.AsyncReporter$BoundedAsyncReporter [] - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
-20:38:54.529 WARN  z.r.AsyncReporter$BoundedAsyncReporter [] - Dropped 6 spans due to ResourceAccessException(I/O error on POST request for "http://localhost:9411/api/v2/spans": Connect to http://localhost:9411 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information)
+16:03:17.205 INFO  c.m.UserAuthServiceServiceApplication [Request_Id: ] [User_key: ] - Starting UserAuthServiceServiceApplication using Java 17.0.8 with PID 17604 (C:\Users\ibfin-1\Desktop\Raghavendra\MicroServices-2\MS-2\UserAuthService\target\classes started by ibfin-1 in C:\Users\ibfin-1\Desktop\Raghavendra\MicroServices-2)
+16:03:17.209 INFO  c.m.UserAuthServiceServiceApplication [Request_Id: ] [User_key: ] - No active profile set, falling back to 1 default profile: "default"
+16:03:18.870 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [Request_Id: ] [User_key: ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:03:19.070 INFO  o.s.d.r.c.RepositoryConfigurationDelegate [Request_Id: ] [User_key: ] - Finished Spring Data repository scanning in 187 ms. Found 1 JPA repository interfaces.
+16:03:19.519 INFO  o.s.cloud.context.scope.GenericScope [Request_Id: ] [User_key: ] - BeanFactory id=fa87ac5d-07cc-36a9-bf51-0fcac3a181b7
+16:03:20.191 INFO  o.s.b.w.e.tomcat.TomcatWebServer [Request_Id: ] [User_key: ] - Tomcat initialized with port(s): 8085 (http)
+16:03:20.204 INFO  o.a.catalina.core.StandardService [Request_Id: ] [User_key: ] - Starting service [Tomcat]
+16:03:20.204 INFO  o.a.catalina.core.StandardEngine [Request_Id: ] [User_key: ] - Starting Servlet engine: [Apache Tomcat/10.1.11]
+16:03:20.332 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [Request_Id: ] [User_key: ] - Initializing Spring embedded WebApplicationContext
+16:03:20.333 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext [Request_Id: ] [User_key: ] - Root WebApplicationContext: initialization completed in 3059 ms
+16:03:20.988 INFO  o.a.catalina.core.StandardContext [Request_Id: ] [User_key: ] - Suspicious URL pattern: [/auths/**] in context [], see sections 12.1 and 12.2 of the Servlet specification
+16:03:20.989 INFO  o.a.catalina.core.StandardContext [Request_Id: ] [User_key: ] - Suspicious URL pattern: [/auths/all/**] in context [], see sections 12.1 and 12.2 of the Servlet specification
+16:03:21.180 INFO  o.h.jpa.internal.util.LogHelper [Request_Id: ] [User_key: ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:03:21.255 INFO  org.hibernate.Version [Request_Id: ] [User_key: ] - HHH000412: Hibernate ORM core version 6.2.6.Final
+16:03:21.259 INFO  org.hibernate.cfg.Environment [Request_Id: ] [User_key: ] - HHH000406: Using bytecode reflection optimizer
+16:03:21.434 INFO  o.h.b.i.BytecodeProviderInitiator [Request_Id: ] [User_key: ] - HHH000021: Bytecode provider name : bytebuddy
+16:03:21.799 INFO  o.s.o.j.p.SpringPersistenceUnitInfo [Request_Id: ] [User_key: ] - No LoadTimeWeaver setup: ignoring JPA class transformer
+16:03:21.818 INFO  com.zaxxer.hikari.HikariDataSource [Request_Id: ] [User_key: ] - HikariPool-1 - Starting...
+16:03:22.182 INFO  com.zaxxer.hikari.pool.HikariPool [Request_Id: ] [User_key: ] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@20556566
+16:03:22.184 INFO  com.zaxxer.hikari.HikariDataSource [Request_Id: ] [User_key: ] - HikariPool-1 - Start completed.
+16:03:22.701 INFO  o.h.b.i.BytecodeProviderInitiator [Request_Id: ] [User_key: ] - HHH000021: Bytecode provider name : bytebuddy
+16:03:23.391 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator [Request_Id: ] [User_key: ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:03:23.550 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean [Request_Id: ] [User_key: ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:03:24.212 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [Request_Id: ] [User_key: ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16:03:25.247 INFO  o.s.b.a.e.web.EndpointLinksResolver [Request_Id: ] [User_key: ] - Exposing 1 endpoint(s) beneath base path '/actuator'
+16:03:25.321 INFO  o.s.s.web.DefaultSecurityFilterChain [Request_Id: ] [User_key: ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@254a9f65, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f1d2384, org.springframework.security.web.context.SecurityContextHolderFilter@7719b257, org.springframework.security.web.header.HeaderWriterFilter@1da40ae8, org.springframework.security.web.authentication.logout.LogoutFilter@53a3ccc, com.micro.filter.JwtValidationFilter@50c20b15, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2ab40d2d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@681302ad, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@618d2191, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6dcf39c6, org.springframework.security.web.access.ExceptionTranslationFilter@486480e2, org.springframework.security.web.access.intercept.AuthorizationFilter@19d043a8]
+16:03:25.809 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration [Request_Id: ] [User_key: ] - Eureka HTTP Client uses RestTemplate.
+16:03:25.876 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger [Request_Id: ] [User_key: ] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+16:03:25.975 INFO  o.s.c.n.eureka.InstanceInfoFactory [Request_Id: ] [User_key: ] - Setting initial instance status as: STARTING
+16:03:26.212 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Initializing Eureka in region us-east-1
+16:03:26.221 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:03:26.259 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Disable delta property : false
+16:03:26.260 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Single vip registry refresh property : null
+16:03:26.264 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Force full registry fetch : false
+16:03:26.264 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Application is null : false
+16:03:26.264 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Registered Applications size is zero : true
+16:03:26.264 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Application version is -1: true
+16:03:26.264 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Getting all instance registry info from the eureka server
+16:03:26.586 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - The response status is 200
+16:03:26.588 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Starting heartbeat executor: renew interval is: 30
+16:03:26.593 INFO  c.n.discovery.InstanceInfoReplicator [Request_Id: ] [User_key: ] - InstanceInfoReplicator onDemand update allowed rate per min is 4
+16:03:26.600 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Discovery Client initialized at timestamp 1692354806599 with initial instances count: 0
+16:03:26.603 INFO  o.s.c.n.e.s.EurekaServiceRegistry [Request_Id: ] [User_key: ] - Registering application AUTHSERVICE with eureka with status UP
+16:03:26.604 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Saw local status change event StatusChangeEvent [timestamp=1692354806604, current=UP, previous=STARTING]
+16:03:26.608 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085: registering service...
+16:03:26.648 INFO  o.s.b.w.e.tomcat.TomcatWebServer [Request_Id: ] [User_key: ] - Tomcat started on port(s): 8085 (http) with context path ''
+16:03:26.649 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration [Request_Id: ] [User_key: ] - Updating port to 8085
+16:03:26.668 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085 - registration status: 204
+16:03:26.763 INFO  c.m.UserAuthServiceServiceApplication [Request_Id: ] [User_key: ] - Started UserAuthServiceServiceApplication in 10.213 seconds (process running for 10.718)
+16:03:26.772 INFO  com.micro.util.MyStartupTack [Request_Id: ] [User_key: ] - Inside Startup Method..!
+16:03:27.024 INFO  com.micro.util.MyStartupTack [Request_Id: ] [User_key: ] - Data Already Present in DB..
+16:03:27.095 INFO  com.micro.util.MyStartupTack [Request_Id: ] [User_key: ] - Start-up Method Execution Successfully Done..!
+16:03:56.604 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Disable delta property : false
+16:03:56.604 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Single vip registry refresh property : null
+16:03:56.604 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Force full registry fetch : false
+16:03:56.605 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Application is null : false
+16:03:56.605 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Registered Applications size is zero : true
+16:03:56.605 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Application version is -1: false
+16:03:56.605 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Getting all instance registry info from the eureka server
+16:03:56.652 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - The response status is 200
+16:08:26.285 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:12:50.122 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [Request_Id: ] [User_key: ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:12:50.126 INFO  o.s.web.servlet.DispatcherServlet [Request_Id: ] [User_key: ] - Initializing Servlet 'dispatcherServlet'
+16:12:50.269 INFO  o.s.web.servlet.DispatcherServlet [Request_Id: ] [User_key: ] - Completed initialization in 141 ms
+16:12:51.294 INFO  com.micro.filter.AdminFilter [Request_Id: ] [User_key: ] - Inside AdminFilter of AuthService..!
+16:12:51.294 INFO  com.micro.filter.BasicFilter [Request_Id: ] [User_key: ] - Inside BasicFilter of AuthService..!
+16:12:51.317 INFO  c.m.controller.UserDataController [Request_Id: ] [User_key: ] - Inside Controller Layer (/token)..!
+16:13:26.309 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:13:34.879 INFO  com.micro.filter.AdminFilter [Request_Id: ] [User_key: ] - Inside AdminFilter of AuthService..!
+16:13:34.879 INFO  com.micro.filter.BasicFilter [Request_Id: ] [User_key: ] - Inside BasicFilter of AuthService..!
+16:13:34.880 INFO  c.m.controller.UserDataController [Request_Id: ] [User_key: ] - Inside Controller Layer (/token)..!
+16:13:54.343 INFO  com.micro.filter.AdminFilter [Request_Id: ] [User_key: ] - Inside AdminFilter of AuthService..!
+16:13:54.344 INFO  com.micro.filter.BasicFilter [Request_Id: ] [User_key: ] - Inside BasicFilter of AuthService..!
+16:13:54.346 INFO  c.m.controller.UserDataController [Request_Id: ] [User_key: ] - Inside Controller Layer (/token)..!
+16:13:55.413 WARN  z.r.AsyncReporter$BoundedAsyncReporter [Request_Id: ] [User_key: ] - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+16:13:55.414 WARN  z.r.AsyncReporter$BoundedAsyncReporter [Request_Id: ] [User_key: ] - Dropped 6 spans due to ResourceAccessException(I/O error on POST request for "http://localhost:9411/api/v2/spans": Connect to http://localhost:9411 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information)
 org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:9411/api/v2/spans": Connect to http://localhost:9411 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:888)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:868)
@@ -771,46 +118,79 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:862)
 	... 8 common frames omitted
-20:39:25.948 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:44:25.964 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:49:25.970 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:54:25.984 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-20:59:26.002 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:04:26.010 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:09:26.029 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:14:26.044 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:19:26.055 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:24:26.078 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:29:26.101 INFO  c.n.d.s.r.aws.ConfigClusterResolver [] - Resolving eureka endpoints via configuration
-21:32:31.620 INFO  o.s.c.n.e.s.EurekaServiceRegistry [] - Unregistering application AUTHSERVICE with eureka with status DOWN
-21:32:31.620 INFO  c.netflix.discovery.DiscoveryClient [] - Saw local status change event StatusChangeEvent [timestamp=1692201751620, current=DOWN, previous=UP]
-21:32:31.639 INFO  c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085: registering service...
-21:32:31.750 INFO  c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085 - registration status: 204
-21:32:32.134 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean [] - Closing JPA EntityManagerFactory for persistence unit 'default'
-21:32:32.177 INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Shutdown initiated...
-21:32:32.256 INFO  com.zaxxer.hikari.HikariDataSource [] - HikariPool-1 - Shutdown completed.
-21:32:32.835 INFO  c.netflix.discovery.DiscoveryClient [] - Shutting down DiscoveryClient ...
-21:32:35.233 INFO  c.n.d.s.t.d.RedirectingEurekaHttpClient [] - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on PUT request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on PUT request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+16:18:26.312 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:23:26.328 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:28:26.331 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:33:26.346 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:38:26.362 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:43:26.378 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:48:26.380 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:53:26.387 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+16:58:26.399 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:03:26.415 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:08:26.427 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:13:26.439 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:18:26.446 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:23:26.454 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:28:26.463 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:33:26.470 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:38:26.477 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:43:26.487 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:48:26.496 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:53:26.503 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+17:58:26.521 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+18:03:26.537 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+18:08:26.546 INFO  c.n.d.s.r.aws.ConfigClusterResolver [Request_Id: ] [User_key: ] - Resolving eureka endpoints via configuration
+18:12:41.037 INFO  o.s.c.n.e.s.EurekaServiceRegistry [Request_Id: ] [User_key: ] - Unregistering application AUTHSERVICE with eureka with status DOWN
+18:12:41.037 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Saw local status change event StatusChangeEvent [timestamp=1692362561037, current=DOWN, previous=UP]
+18:12:41.037 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085: registering service...
+18:12:41.120 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085 - registration status: 204
+18:12:41.791 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean [Request_Id: ] [User_key: ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+18:12:41.864 INFO  com.zaxxer.hikari.HikariDataSource [Request_Id: ] [User_key: ] - HikariPool-1 - Shutdown initiated...
+18:12:41.907 INFO  com.zaxxer.hikari.HikariDataSource [Request_Id: ] [User_key: ] - HikariPool-1 - Shutdown completed.
+18:12:42.667 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Shutting down DiscoveryClient ...
+18:12:45.675 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Unregistering ...
+18:12:45.723 INFO  c.n.d.s.t.d.RedirectingEurekaHttpClient [Request_Id: ] [User_key: ] - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:888)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:868)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:764)
 	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:646)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.sendHeartBeat(RestTemplateEurekaHttpClient.java:103)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
 	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
 	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:837)
-	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1401)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:916)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:892)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:191)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:184)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:200)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1189)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1182)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1107)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1076)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:173)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1027)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:139)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:108)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
 	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
@@ -850,89 +230,10 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
 	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:862)
-	... 19 more
+	... 39 more
 
-21:32:35.235 WARN  c.n.d.s.t.d.RetryableEurekaHttpClient [] - Request execution failed with message: I/O error on PUT request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
-21:32:35.264 INFO  c.n.d.s.t.d.RedirectingEurekaHttpClient [] - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on PUT request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on PUT request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
-	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:888)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:868)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:764)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:646)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.sendHeartBeat(RestTemplateEurekaHttpClient.java:103)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:837)
-	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1401)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:633)
-	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.lambda$connectSocket$0(PlainConnectionSocketFactory.java:85)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
-	at org.apache.hc.client5.http.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:84)
-	at org.apache.hc.client5.http.socket.ConnectionSocketFactory.connectSocket(ConnectionSocketFactory.java:113)
-	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:181)
-	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:447)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:162)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:172)
-	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:142)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:96)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:152)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:115)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:170)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:106)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:93)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:101)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$0(RestTemplateTransportClientFactory.java:143)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:87)
-	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:71)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:862)
-	... 20 more
-
-21:32:35.266 WARN  c.n.d.s.t.d.RetryableEurekaHttpClient [] - Request execution failed with message: I/O error on PUT request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
-21:32:35.268 ERROR c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085 - was unable to send heartbeat!
-com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
-	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:837)
-	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1401)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-21:32:35.856 INFO  c.netflix.discovery.DiscoveryClient [] - Unregistering ...
-21:32:35.899 INFO  c.n.d.s.t.d.RedirectingEurekaHttpClient [] - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+18:12:45.723 WARN  c.n.d.s.t.d.RetryableEurekaHttpClient [Request_Id: ] [User_key: ] - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+18:12:45.742 INFO  c.n.d.s.t.d.RedirectingEurekaHttpClient [Request_Id: ] [User_key: ] - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:888)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:868)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:764)
@@ -1015,8 +316,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:862)
 	... 40 more
 
-21:32:35.900 WARN  c.n.d.s.t.d.RetryableEurekaHttpClient [] - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
-21:32:35.900 ERROR c.netflix.discovery.DiscoveryClient [] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085 - de-registration failedCannot execute request on any known server
+18:12:45.742 WARN  c.n.d.s.t.d.RetryableEurekaHttpClient [Request_Id: ] [User_key: ] - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+18:12:45.742 ERROR c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - DiscoveryClient_AUTHSERVICE/host.docker.internal:AUTHSERVICE:8085 - de-registration failedCannot execute request on any known server
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
@@ -1050,4 +351,4 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
 	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:108)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-21:32:35.934 INFO  c.netflix.discovery.DiscoveryClient [] - Completed shut down of DiscoveryClient
+18:12:45.767 INFO  c.netflix.discovery.DiscoveryClient [Request_Id: ] [User_key: ] - Completed shut down of DiscoveryClient
