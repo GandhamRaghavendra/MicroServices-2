@@ -2,6 +2,7 @@ package com.cach.CachApp.controller;
 
 import com.cach.CachApp.model.ApiResponse;
 import com.cach.CachApp.model.MktData;
+import com.cach.CachApp.service.MyIntWebClient;
 import com.cach.CachApp.service.TestService;
 import com.cach.CachApp.util.IntEndpoints;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/fno")
@@ -18,6 +20,9 @@ public class FNOController {
 
     @Autowired
     private TestService testService;
+
+    @Autowired
+    private MyIntWebClient myIntWebClient;
 
     @GetMapping
     public ResponseEntity<String> check(@RequestHeader("api-key") String key){
@@ -32,9 +37,7 @@ public class FNOController {
     @GetMapping("/techsignal/RELIANCE/5")
     public ResponseEntity<ApiResponse> test(@RequestHeader("api-key") String key){
 
-        ApiResponse res = testService.restCallGeneric(key, IntEndpoints.Technical_Signal);
-
-//        ApiResponse res = testService.testMethod(key);
+        ApiResponse res = myIntWebClient.webClintGenericCall(key, IntEndpoints.Technical_Signal);
 
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
@@ -42,7 +45,9 @@ public class FNOController {
     @GetMapping("/multistrikeOi/NIFTY")
     public ResponseEntity<ApiResponse> method2(@RequestHeader("api-key") String key){
 
-        ApiResponse res = testService.restCallGeneric(key, IntEndpoints.MultiStrikeOi);
+//        ApiResponse res = testService.restCallGeneric(key, IntEndpoints.MultiStrikeOi);
+
+        ApiResponse res = myIntWebClient.webClintGenericCall(key, IntEndpoints.MultiStrikeOi);
 
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
@@ -50,7 +55,9 @@ public class FNOController {
     @GetMapping("/combinedOi/NIFTY")
     public ResponseEntity<ApiResponse> method3(@RequestHeader("api-key") String key){
 
-        ApiResponse res = testService.restCallGeneric(key, IntEndpoints.CombinedOi);
+//        ApiResponse res = testService.restCallGeneric(key, IntEndpoints.CombinedOi);
+
+        ApiResponse res = myIntWebClient.webClintGenericCall(key, IntEndpoints.CombinedOi);
 
         return new ResponseEntity<>(res, HttpStatus.OK);
     }

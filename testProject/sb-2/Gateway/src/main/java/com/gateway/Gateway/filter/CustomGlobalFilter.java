@@ -111,6 +111,7 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
             @NonNull
             @Override
             public Mono<Void> writeWith(@NonNull Publisher<? extends DataBuffer> body) {
+
                 if (body instanceof Flux) {
 
                     Flux<? extends DataBuffer> flux = (Flux<? extends DataBuffer>) body;
